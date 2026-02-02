@@ -1,0 +1,177 @@
+---
+title: "<br>"
+subtitle: ""
+author: ""
+date: ""
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, rutgers, "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css", "https://use.fontawesome.com/releases/v7.0.0/css/all.css"]
+    lib_dir: libs
+    self_contained: true
+    nature:
+      mathjax: "default"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      
+---
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+#knitr::include_graphics()
+knitr::opts_chunk$set(
+  cache = TRUE,
+  message = FALSE, 
+  warning = FALSE,
+  hiline = TRUE,
+  fig.retina = 5
+)
+library(ggplot2)
+library(readr)
+library(knitr)
+#pagedown::chrome_print(".html")
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#1c5253", link_color =  "#DE1144", code_inline_color = "#DE1144",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "400", "400i"),
+  code_font_google   = google_font("Roboto Mono"),
+    
+)
+```
+
+```{r xaringanExtra-clipboard, echo=FALSE}
+library(xaringanExtra)
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clipboard\"></i>",
+    success_text = "<i class=\"fa fa-check\" style=\"color: #90BE6D\"></i>",
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+```
+
+
+class: animated, fadeIn
+
+# Outline
+
+- What is a gene?
+
+- Protein-coding and non-coding genes
+  - Gene structure and expression
+  - Functional roles of genes
+
+- Relationships between sequence, structure, and function and their evolution
+  - Homology-based functional inference
+  - Protein domains and domain shuffling
+  - Prediction of protein subcellular localization
+  - _De novo_ origin of genes
+
+- Pathways
+  - The Gene Ontology
+  - Enrichment analyses
+
+<style>
+.title-slide {
+  background-image: url('img/1.png');
+  background-size: 100%;
+}
+</style>
+
+
+---
+
+layout: false
+class: left, bottom, inverse, animated, bounceInDown
+# 01
+## What is a gene?
+
+---
+class: animated, fadeIn
+
+# What is a gene?
+
+Wooclap
+
+---
+class: animated, fadeIn
+
+# Back in the 1800
+
+- The existence of **discrete inheritable** units was first suggested by Gregor Mendel (1822-1884)
+
+---
+
+layout: false
+class: left, bottom, inverse, animated, bounceInDown
+
+# 02
+## Protein-coding and non-coding genes
+
+---
+class: animated, fadeIn
+
+# Protein-coding and non-coding genes
+
+
+
+---
+
+layout: false
+class: left, bottom, inverse, animated, bounceInDown
+# 03
+## Relationships between sequence, structure, and function and their evolution
+
+---
+class: animated, fadeIn
+
+# Relationships between sequence, structure, and function and their evolution
+
+
+
+---
+
+layout: false
+class: left, bottom, inverse, animated, bounceInDown
+# 01
+## What is a gene?
+
+---
+class: animated, fadeIn
+
+# What is a gene?
+
+
+
+---
+
+layout: false
+class: left, bottom, inverse, animated, bounceInDown
+# 04
+## Pathways
+
+---
+class: animated, fadeIn
+
+# Pathways
+
+
+
+
+---
+class: animated, fadeIn
+
+## Contact
+
+<div style="margin-top: 20vh; text-align:center;">
+
+| Marta Coronado Zamora | 
+|:-:|
+| <a href="mailto:marta.coronado@uab.cat"><i class="fa fa-paper-plane fa-fw"></i> marta.coronado@uab.cat</a> | 
+| <a href="https://bsky.app/profile/geneticament.bsky.social"><i class="fab fa-bluesky fa-fw"></i>&nbsp; @geneticament.bsky.social</a> | 
+| <a href="https://www.uab.cat"><i class="fa fa-map-marker fa-fw"></i>&nbsp; Universitat Autònoma de Barcelona</a> | 
+

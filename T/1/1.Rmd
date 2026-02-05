@@ -100,9 +100,28 @@ Wooclap
 ---
 class: animated, fadeIn
 
-# Back in the 1800
+# Back in the 1800s
 
-- The existence of **discrete inheritable** units was first suggested by Gregor Mendel (1822-1884)
+- The existence of **discrete inheritable** units was first suggested by **Gregor Mendel** (1822-1884)
+
+<center>
+<img src="img/_118073037_hi066780220-1.jpg" width=70%></img>
+
+---
+class: animated, fadeIn
+
+# Key experiments (1940s)
+
+--
+
+- DNA/RNA was the physical support of the entities called _genes_
+
+---
+class: animated, fadeIn
+
+# Modern definition
+
+> A sequence of DNA or RNA which codes for a molecule that has a function. 
 
 ---
 
@@ -115,8 +134,9 @@ class: left, bottom, inverse, animated, bounceInDown
 ---
 class: animated, fadeIn
 
-# Protein-coding and non-coding genes
+# Gene structure and expression
 
+### The difference between prokaryotic and eukrayotic genes
 
 
 ---

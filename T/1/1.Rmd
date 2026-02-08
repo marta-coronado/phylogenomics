@@ -112,7 +112,7 @@ class: animated, fadeIn
 - The existence of **discrete inheritable** units was first suggested by **Gregor Mendel** (1822-1884)
 
 <center>
-<img src="img/_118073037_hi066780220-1.jpg" width=70%></img>
+<img src="img/mendel.jpg" width=70%></img>
 
 ---
 class: animated, fadeIn

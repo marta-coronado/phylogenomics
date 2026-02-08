@@ -12,6 +12,11 @@
     <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-clipboard\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"Press Ctrl+C to Copy"})</script>
     <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
     <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <link href="libs/msa/msa.css" rel="stylesheet" />
+    <script src="libs/msa/msa.js"></script>
+    <script src="libs/biojs-io-fasta/biojs-io-fasta-0.1.12.js"></script>
+    <script src="libs/msaR-binding/msaR.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.0/css/all.css" type="text/css" />
@@ -76,7 +81,14 @@ class: animated, fadeIn
 
 # What is a gene?
 
-Wooclap
+.pull-left[
+&lt;center&gt;
+&lt;img src="img/wooclap1.png" width=80%&gt;
+]
+.pull-right[
+
+#### &lt;a href="https://www.wooclap.com"&gt;www.wooclap.com&lt;/a&gt; &lt;i class="fa-solid fa-arrow-right"&gt;&lt;/i&gt; Event code: **SKTJQE**
+]
 
 ---
 class: animated, fadeIn
@@ -91,18 +103,51 @@ class: animated, fadeIn
 ---
 class: animated, fadeIn
 
-# Key experiments (1940s)
+# Key experiments (1940s-1950s)
 
 --
 
-- DNA/RNA was the physical support of the entities called _genes_
+.pull-left[
+
+#### Avery-MacLeod-McCarty experiment ([1944](https://doi.org/10.1084/jem.79.2.137))
+- *Streptococcus pneumoniae* strains
+
+&lt;img src="img/exp1.png"&gt;
+
+- **DNA** is the substance that causes bacterial transformation
+
+]
+
+--
+
+.pull-right[
+
+#### Hersey-Chase experiments ([1952](https://doi.org/10.1085/jgp.36.1.39))
+- Bacteriophages
+
+&lt;center&gt;
+&lt;img src="img/exp2.png" width=60%&gt;
+&lt;/center&gt;
+
+- **DNA** entered the bacteria to direct viral replication
+
+
+]
+
+--
+
+&gt; DNA/RNA was the physical support of the entities called _genes_
 
 ---
 class: animated, fadeIn
 
 # Modern definition
 
-&gt; A sequence of DNA or RNA which codes for a molecule that has a function. 
+&gt; **A sequence of DNA or RNA which codes for a molecule that has a function.** 
+
+&lt;center&gt;
+&lt;img src="img/gene.png" width=80%&gt;
+&lt;/center&gt;
 
 ---
 
@@ -120,6 +165,164 @@ class: animated, fadeIn
 ### The difference between prokaryotic and eukrayotic genes
 
 
+.pull-left[
+
+&lt;center&gt;
+
+&lt;b&gt;Prokaryotic gene&lt;/b&gt;
+
+
+&lt;img src="img/pro.png" &gt;
+&lt;/center&gt;
+
+- A set of genes is transcribed together
+- They usually encode for functions of the same pathway
+- Stoichiometric relationship
+]
+
+.pull-left[
+
+&lt;center&gt;
+&lt;b&gt;Eukaryotic gene&lt;/b&gt;
+&lt;img src="img/euk.png" &gt;
+&lt;/center&gt;
+
+- Exons and introns (removed through splicing)
+- Post-translational modifications: cap structure + poly-A tail (protect mRNA)
+]
+
+---
+class: animated, fadeIn
+
+# Gene structure and expression
+
+- The pattern of gene activation can inform us of the **function** of a gene
+
+--
+
+**Gene expression** is a tighly-regulated process:
+  - **Proteins**: transcription factors (activators, repressors)
+  - **Sequences**: Promoters, Enhancers, TFBS
+
+&lt;center&gt;
+&lt;img src="img/enhancer-silencer_med.jpeg" width=60%&gt;
+&lt;/center&gt;
+
+---
+
+# Gene structure and expression
+
+### Splicing
+
+.pull-left[
+&lt;center&gt;
+&lt;img src="img/splicing.png" width=55%&gt;
+&lt;/center&gt;
+]
+
+.pull-right[
+- Eukaryotic **pre-mRNA splicing** is orchestrated by the **spliceosome**: catalyses removal of the intron and splicing together of the protein-coding exons via its RNA-based catalytic centre
+
+- The architecture of a pre-mRNA before splicing:
+
+&lt;img src="img/splicing2.png" width=100%&gt;
+
+- The resulting proteins are functionally related but may have key differences in their substrate affinity and encode for slightly different functions
+
+&lt;small&gt;
+[Wright,Smith,&amp; Jiggins (2022) Nat Rev Genet](https://doi.org/10.1038/s41576-022-00514-4)
+
+]
+
+
+---
+class: animated, fadeIn
+
+# Gene structure and expression
+
+- Transcript nuclear export (in eukaryotes)
+
+For protein-coding genes:
+- **Ribosomes**: Translation into protein
+- **Chaperones**: Protein folding 
+
+&lt;center&gt;
+&lt;img src="img/protein.png" width=60%&gt;
+
+---
+class: animated, fadeIn
+
+# Modern gene definition
+
+&gt; **A sequence of DNA or RNA which codes for a molecule that has a function.** 
+
+&lt;center&gt;
+&lt;img src="img/gene.png" width=80%&gt;
+&lt;/center&gt;
+
+
+
+---
+class: animated, fadeIn
+
+# Functional role of genes
+
+- What do we consider a function?
+
+--
+
+.pull-left[
+
+**General functions**:
+
+- Structural (e.g. Actin)
+- Catalytic (e.g. Glycogen synthase)
+- Regulatory (e.g. Transcription Factor)
+- Several functions
+- Etc.
+]
+
+--
+
+.pull-right[
+**Functional categories:**:
+
+- Essential vs. non-essential
+- Constitutive (housekeeping) vs. condition-specific
+- Induced when facing a given stimulus
+]
+
+---
+
+class: animated, fadeIn
+
+# Functional role of genes
+
+.pull-left[
+
+&lt;img src="img/function.png"&gt;
+]
+
+--
+
+.pull-right[
+
+**Levels of protein function:**
+
+- **Molecular function**: activity that the molecule carries out.
+-	**Cellular function**: the role the molecule carries out in the cell
+  - Two proteins may have the same molecular function but carry out two different processes within the cell 
+-	**Phenotypic function**: A broader level, the role the molecule has on the morphology or physiology of the organism
+
+&gt; For some genes we may know the phenotypic function, for some others only the cellular function
+
+&lt;br&gt;
+
+&lt;small&gt;
+[Bork et al (1998)](https://doi.org/10.1006/jmbi.1998.2144)
+
+]
+
 ---
 
 layout: false
@@ -130,23 +333,562 @@ class: left, bottom, inverse, animated, bounceInDown
 ---
 class: animated, fadeIn
 
-# Relationships between sequence, structure, and function and their evolution
+# What determines the function of a gene?
 
+&lt;center&gt;
+&lt;img src="img/gene.png" width=70%&gt;
+&lt;/center&gt;
 
+--
 
----
+- The function of a gene is determined by the molecule carrying out that function (protein or ncRNA)
+- Gene functions ultimately arise from the chemical and physical properties of these molecules
+- These properties depend on the structure and interactions of the molecule
 
-layout: false
-class: left, bottom, inverse, animated, bounceInDown
-# 01
-## What is a gene?
 
 ---
 class: animated, fadeIn
 
-# What is a gene?
+# What determines the function of a gene?
+
+-  The **3D structure is key**, which is in turn determined by the sequence. 
+
+&gt; The sequence determines the structure which determines the function.
+
+&lt;center&gt;
+&lt;img src="img/structure.png" width=60%&gt;
+&lt;/center&gt;
+
+*Example*: The enzyme TEV protease contains a catalytic triad of residues (red) in its catalytic site. The substrate (black) is bound by the binding site to orient it next to the triad.
+
+---
+
+class: animated, fadeIn
+
+## Protein structure
+
+- There is a plethora of shapes that exist within the protein world: 
+ 
+&lt;center&gt;
+&lt;img src="img/structural-biology-services-n-1.webp" width=53%&gt;
+&lt;/center&gt;
+
+&gt; Proteins fold into recurring structural motifs (e.g. α/β barrels, propellers, solenoids)&lt;br&gt;
+&gt; Different folds enable different molecular functions
+
+---
+
+class: animated, fadeIn
+
+## RNA structure
+
+The properties are determined by the structure which is in turn determined by the sequence. 
+&lt;center&gt;
+&lt;img src="img/ijms-18-02659-g002.png" width=56%&gt;
+&lt;/center&gt;
+
+- LncRNA allostery effect for interacting with different ligand proteins.
+- LncRNA acting as molecular scaffold to recruit and combine with multiple regulatory proteins.
+- LncRNA mediating histone modification by the functional region repeat elements.
+
+&lt;small&gt;
+[Wang et al. 2017](https://doi.org/10.3390/ijms18122659)
 
 
+---
+
+class: animated, fadeIn
+
+## Structure conservation
+
+&gt; A sequence can vary through **time**
+
+Multiple sequence alignment (**MSA**) of Hemoglobin subunit alpha 1 for different species (R package `msaR`):
+
+
+&lt;br&gt;
+
+<div id="htmlwidget-0583932a2c7166a0add5" style="width:10%;height:504px;" class="msaR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0583932a2c7166a0add5">{"x":{"sequences":[{"id":"HBA1|Crotalus_adamanteus","name":"HBA1|Crotalus_adamanteus","seq":"-MVLSDDDKAKVRAAWVPVAKNAEMYGSETLNRMFAAHSTTKTYFPHF-NLSPGSSDLKTHGKKVIDALTEAVNNLDDVPGALSKLSDLHAHKLRVDPVNFKLLGHCLEITMAVHNGGPLDASVLLPLDKFLDLVAKVLVSRYR"},{"id":"HBA1|Boiga_irregularis","name":"HBA1|Boiga_irregularis","seq":"-MVLTDEDKARVRASWAAVSKNAELYGSETLSRLFAAHPTTKTYFHHF-DLSPGSSDLKSHGKKVIDAITEAANNLDDVAGALSKLSDLHAQKLRVDPVNFKLLGHCLEVTIAAHNGGPLKPEVILSLDKFFCQIAKVLASRYR"},{"id":"HBA1|Alca_torda","name":"HBA1|Alca_torda","seq":"-MVLSGSDKSNVKAVFGKIGGHAEEYGAETLERMFATYPQTKTYFPHF-DLQHGSAQVKAHGKKVAAALVEAANHIDDISSALSKLSDLHAQKLRVDPVNFKLLGQCFLVVVAIHHPSVLTPEVHASLDKFLCAVGNVLTAKYR"},{"id":"HBA1|Scalopus_aquaticus","name":"HBA1|Scalopus_aquaticus","seq":"-MVLYDTDKSNIKAAWQKVGTHAGEYGGEALERMFDCFPTTKTYFPHF-DLKPGSAQVKAHGSKVAEALTKAVDHLDDLPGALNVLSDLHAHKLRVDPVNFKLLSHCLLVTLASHLSADFTPAMHASLDKFFATVSTVLTSKYR"},{"id":"HBA1|Condylura_cristata","name":"HBA1|Condylura_cristata","seq":"-MVLSATDKSNIKAFWGKIGDHAGEYGAEALERTFAAFPTTKTYFPHF-DLSHGSAQVKGHGKKVADALTNAVNHLDDLPGALSALSDLHAHKLRVDPVNFKLLSHCLLVTLACHHPSDISPAVHASLDKFLATVSTVLTSKYR"},{"id":"HBA1|Homo_sapiens","name":"HBA1|Homo_sapiens","seq":"-MVLSPADKTNVKAAWGKVGAHAGEYGAEALERMFLSFPTTKTYFPHF-DLSHGSAQVKGHGKKVADALTNAVAHVDDMPNALSALSDLHAHKLRVDPVNFKLLSHCLLVTLAAHLPAEFTPAVHASLDKFLASVSTVLTSKYR"},{"id":"HBA1|Mugilogobius_chulae","name":"HBA1|Mugilogobius_chulae","seq":"-MSLSKKDKAAVKALWGKISGNAEAIGADTLARLFACFPQTKTYFSHWPELTAGSPSLKSHGAIILGGVSLAVDNIDDMNKGLLELSEKHAFQLRVDPANFKLMSQCLMVVIATMFPKDFGPEVQVSFDKFMVNVALALSERFR"},{"id":"HBA1|Seriola_aureovittata","name":"HBA1|Seriola_aureovittata","seq":"MTSLTAKDKDAVKAFWAKISGKAEDIGTDALSRMLVVYPQTKTYFSHWKDLSPGSAPVRKHGITVMSGVADAVSKIDDLKGGLLNLSELHAFTLRVDPANFKILSHNILVVLAIMFPKEFTPEVHVAMDKFLAALARALSEKYR"}],"config":{"vis":{"conserv":true,"overviewbox":false,"seqlogo":true,"sequences":true,"markers":true,"metacell":false,"gapHeader":false,"leftHeader":true,"labels":true,"labelName":true,"labelId":false,"labelPartition":false,"labelCheckbox":false,"metaGaps":true,"metaIdentity":true,"metaLinks":true},"conf":{"dropImport":true,"registerMouseHover":false,"registerMouseClicks":true,"eventBus":true,"alphabetSize":20,"debug":false,"hasRef":false,"manualRendering":false},"colorscheme":{"scheme":"clustal2","colorBackground":true,"showLowerCase":true,"opacity":0.6},"zoomer":{"menuFontsize":"12px","autoResize":true,"alignmentWidth":"auto","alignmentHeight":225,"columnWidth":15,"rowHeight":15,"textVisible":true,"labelIdLength":30,"labelNameLength":100,"labelPartLength":15,"labelCheckLength":15,"labelFontsize":13,"labelLineHeight":"13px","markerFontsize":"10px","stepSize":1,"markerStepSize":2,"markerHeight":20,"residueFont":"13","canvasEventScale":1,"boxRectHeight":2,"boxRectWidth":2,"overviewboxPaddingTop":10,"overviewboxWidth":"auto","overviewboxHeight":"fixed","metaGapWidth":35,"metaIdentWidth":40,"metaLinksWidth":25},"menu":{"menuFontsize":"14px","menuItemFontsize":"14px","menuItemLineHeight":"14px","menuMarginLeft":"3px","menuPadding":"3px 4px 3px 4px"}},"menu":false,"features":null},"evals":[],"jsHooks":[]}</script>
+
+
+---
+
+
+class: animated, fadeIn
+
+## Structure conservation
+
+&gt; A sequence can vary through **time**
+
+
+.pull-left[
+&lt;center&gt;
+&lt;img src="img/hba2.jpg" width=100%&gt;
+&lt;/center&gt;
+]
+
+.pull-right[
+
+- Phylogenetic reconstruction based on myoglobin sequences: evolutionary relatedness between species was reconstructed using the [https://www.phylogeny.fr/](https://www.phylogeny.fr/) web server.
+
+- The colors show differences to the human transcript, which is used as reference; pink residues indicate identical amino acids; residues similar in physio-chemical properties are light pink; vastly different side-chains are white. The heme is shown in bright red. 
+
+&gt; Some regions are more **variable** than others, which remain more **conserved**
+&lt;small&gt;
+
+&lt;br&gt;
+
+
+[Zaucha &amp; Heddle et al. 2017](https://doi.org/10.1016/j.csbj.2017.05.002)
+
+]
+
+---
+
+
+class: animated, fadeIn
+
+## Phylogenetic trees
+
+&gt; Sequence evolution can be represented with a **phylogenetic tree** (R package `ggtree`)
+
+&lt;center&gt;
+&lt;img src="1_files/figure-html/unnamed-chunk-2-1.png" width="504" /&gt;
+
+
+---
+
+class: animated, fadeIn
+
+# Homology-based functional inference
+
+If sequence determines structure, which determines function, can we predict function from sequence?
+
+&lt;center&gt;
+&lt;img src="img/seqfun.png" width=60%&gt;
+&lt;/center&gt;
+
+---
+
+class: animated, fadeIn
+
+# Homology-based functional inference
+
+.pull-left[
+&lt;img src="img/m_gkae857fig1.jpeg"&gt;
+]
+.pull-right[
+- *E. coli*, the most intensively studied organism:  2,556  genes (~54%) have been well-characterized, and 26% are partially characterized ([Moore et al. 2024](https://doi.org/10.1093/nar/gkae857))
+
+- Key to employ **function prediction approaches**, because experiments are expensive, time-consuming, and require a prior hypothesis to plan the experimental procedure accordingly
+
+]
+
+---
+
+class: animated, fadeIn
+
+# Homology-based functional inference
+
+&lt;code&gt;&gt;protein&lt;br&gt;
+MSEFATSRVESGSQQTSIHSIPIVQKLETDESPIQTKSEYTNAELPAKPIAAYWTVICLC
+LMIAFGGFVFGWDTGTISGFVNQTDFKRRFGQMKSDGTYYLSDVRTGLIVGIFNIGCAFG
+GLTLGRLGDMYGRRIGLMCVLYVYVGIYIQIASSDKWYQYFIGRIISGMGVGGIAVLSPT
+LISETAPKHIRGTCVSFYQLMILTGILFYGTCNYGTKDYSNSVQWRVPLGLNFAFAIFMI
+AQGMLVVPESPRFLVEKGYREDAKRSLANKSNKVTIEDPSIVAEMDTIMANVETERTLAG
+NASWGELFSNKGAILPRVIMGIMIQSLQQLTGNNYFFYYGTTIFNAVGMKDSFQTSVLGI
+VNFASTFVALYVDKFGRRKCLLGGSASMAICFVIFSTVGVTSLYPNGKDQPSSKAAGNVM
+INFCTLCIFFFAISWAPIAIYVASESYPLRVKNRAMAAVGANWIWGFLIGFFTPFITSAI
+GFSYGYVFMGCLVFSFFYVFFFVCETKGLTLEEVNEMVYEGVKPWKSGSWISKEKRVSE&lt;/code&gt;
+
+--
+
+&lt;h2&gt;
+&lt;i class="fa fa-question-circle fa-fw"&gt;&lt;/i&gt; What do we do?
+
+---
+
+class: animated, fadeIn
+
+# Homology-based functional inference
+
+&lt;center&gt;
+&lt;img src="img/blastp.png" width=80%&gt;
+
+---
+
+
+class: animated, fadeIn
+
+# Homology-based functional inference
+
+&lt;center&gt;
+&lt;img src="img/blastp2.png" width=80%&gt;
+&lt;/center&gt;
+
+
+--
+
+- First approach when tackling function annotation
+- By looking at the function of the hits with higher score, we may identify keywords that are repeated
+- Good to predict molecular functions, but give poor information as to higher levels of function
+- *Example of transpoters*: although they share a conserved pore-like structure (easy to detect by sequence), small changes in key residues can drastically alter substrate specificity. Therefore, sequence alone is a poor predictor of cellular function.
+
+---
+class: animated, fadeIn
+
+# Homology-based functional inference
+
+
+.pull-left[
+
+&lt;img src="img/function.png"&gt;
+]
+
+
+.pull-right[
+
+-  Homology-based prediction is good to predict **molecular function** but not higher levels
+- Also, be aware that few residue changes can drive changes in substrate affinity, etc. 
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;small&gt;
+[Bork et al (1998)](https://doi.org/10.1006/jmbi.1998.2144)
+
+]
+
+
+---
+class: animated, fadeIn
+
+# Protein domains and domain shuffling
+
+&gt; Proteins do not work as a whole structure, but are rather **modular** in design, where different parts of the proteins have different functions
+
+&lt;center&gt;
+&lt;img src="img/domains.png" width=70%&gt;
+
+
+---
+class: animated, fadeIn
+
+# Protein domains and domain shuffling
+
+&gt; Proteins do not work as a whole structure, but are rather **modular** in design, where different parts of the proteins have different functions
+
+
+
+#### Protein domains
+
+- A conserved part of a given protein sequence and (tertiary) structure that can evolve, function and exist independently of the rest of the protein
+- Each domain forms a compact three-dimensional structure and often can be independently stable and folded 
+- Many proteins consist of several structural domains
+- A domain may appear in a variety of different proteins
+- Domains often form functional units, such as the calcium-binding EF hand domain calmodulin
+- Some domains are **promiscious* meaning they can appear in diverse families in combination with other domains
+  - when aligning two proteins, it is important to keep in mind whether the region of alignment extends only to a given domain or to the protein as a whole.
+- Furthermore, domains can evolve independently, “jump” from one gene to the other, etc.
+  - Protein families may share little sequence due to the differential presence/absence pattern of domains
+
+
+---
+
+
+class: animated, fadeIn
+
+# Protein domains and domain shuffling
+
+&lt;center&gt;
+&lt;img src="img/domains2.png" width=70%&gt;
+
+&lt;/center&gt;
+
+--
+&lt;br&gt;
+
+&gt; This can confuse homology-based protein prediction (blast hits)
+
+---
+class: animated, fadeIn
+
+# Protein domains and domain shuffling
+
+&gt; Domains are important, because the function may reside in the domain (and not in the preotin)
+
+--
+
+#### Tools
+
+.pull-left[
+
+- **SMART** (https://smart.embl.de/): web-based platform for identifying and annotating protein domains and analyzing domain architectures
+  - [Letunic and Bork (2026)](https://academic.oup.com/nar/article/54/D1/D499/8277914)
+
+- **PFAM** (https://www.ebi.ac.uk/interpro/): Pfam protein families database is a comprehensive collection of protein domains and families used for genome annotation and protein structure and function analysis
+  -  [Paysan-Lafosse (2025)](https://academic.oup.com/nar/article/53/D1/D523/7900195)
+
+]
+
+.pull-right[
+
+&lt;img src="img/main_logo_mini.png"&gt;
+
+&lt;img src="img/Pfam_logo.gif" width=90%&gt;
+
+]
+
+
+---
+class: animated, fadeIn
+
+# Protein domains and domain shuffling
+
+&gt; Domains are important, because the function may reside in the domain (and not in the preotin)
+
+#### Tools
+
+.pull-left[
+
+- **InterPro** (https://www.ebi.ac.uk/interpro): freely accessible resource for the classification of protein sequences into families.
+  - [Blum (2024)](https://doi.org/10.1093/nar/gkae1082)
+
+
+
+]
+
+.pull-right[
+
+&lt;img src="img/interpro_newlogo-2-scaled-1.jpg"&gt;
+
+
+&lt;img src="img/gkae1082figgra1.jpeg"&gt;
+
+
+]
+
+
+---
+class: animated, fadeIn
+
+# Protein domains and domain shuffling
+
+&gt; Domains are important, because the function may reside in the domain (and not in the preotin)
+
+#### Tools
+
+.pull-left[
+
+- **InterPro** (https://www.ebi.ac.uk/interpro): freely accessible resource for the classification of protein sequences into families.
+  - [Blum (2024)](https://doi.org/10.1093/nar/gkae1082)
+
+&lt;br&gt;
+&lt;br&gt;
+
+&gt; All this databases and web tools work at the domain level, avoiding the pitfalls that may arise from whole-protein aligenmtns (e.g. blast)
+
+
+
+]
+
+.pull-right[
+
+&lt;img src="img/interpro_newlogo-2-scaled-1.jpg"&gt;
+
+
+&lt;img src="img/gkae1082figgra1.jpeg"&gt;
+
+
+]
+
+
+---
+class: animated, fadeIn
+
+# Protein domains and domain shuffling
+
+- Domains can be described by Hidden Markov Models (HMM), which specify the likelihood of finding a given residue in a given (relative) position
+
+- HMMs can be derived from multiple sequence alignemtns
+
+- HMM can be used to detect the presence of a given domain in a sequence (i.e. interProScan)
+
+--
+
+&lt;center&gt;
+&lt;img src="img/12859_2013_Article_6260_Fig1_HTML.webp"&gt;
+&lt;/center&gt;
+
+**Skylign** (http://skylign.org/):  a tool for creating informative, interactive logos representing sequence alignments and profile hidden Markov models ([Wheeler et al. 2014](https://link.springer.com/article/10.1186/1471-2105-15-7))
+
+---
+class: animated, fadeIn
+
+# Protein domains and domain shuffling
+
+&lt;center&gt;
+&lt;img src="img/12859_2013_Article_6260_Fig1_HTML.webp"&gt;
+&lt;/center&gt;
+
+- This logo shows positions 64 to 81 of the Peptidase_C14 profile HMM  from Pfam (PF00656, Pfam 27.0)
+- One of the active sites of this Caspase domain is found at position 75.
+-  This site is invariant in active peptidases, but not in this profile HMM:
+  - The Pfam alignment includes non-peptidase homologs, which do not contain a Histidine at this position
+  - HMMER intentionally drives down the information content per position to increase sensitivity to remote homologs.
+
+---
+class: animated, fadeIn
+
+# Protein domains and domain shuffling
+
+
+.pull-left[
+&lt;img src="img/modular.png"&gt;
+
+]
+
+.pull-right[
+
+&gt; As domains tend to display a conserved function, function can be inferered from the domains present in a given protein
+
+&lt;br&gt;
+*Example*: Modular architecture of some SH2-domain-containing proteins
+- Especially in eukaryotes this modular design is particularly abundant
+- SH2 domains have subsequently been identified in a wide range of signalling proteins, often together with other
+modular signalling domains 
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+[Yaffe (2002)]( https://pubmed.ncbi.nlm.nih.gov/11994738/)
+
+
+]
+ 
+---
+class: animated, fadeIn
+
+# Prediction of protein subcellular localization
+
+.pull-left[
+&lt;img src="img/sema5a.png" &gt;
+]
+
+.pull-right[
+- **Signal peptide**: directs the protein for localization 
+- **Sema**: protein binding, specifically during axon guidance 
+- **PSI**: receptor activity in multicellular organismal development
+- **TSPI** (Thrombospondin type 1 repeats): regulators of cell interactions in vertebrates
+- **Transmembrane region**: involved in variety of cellular functions
+
+]
+
+
+---
+class: animated, fadeIn
+
+# Prediction of protein subcellular localization
+
+.pull-left[
+&lt;img src="img/sema5a.png" &gt;
+]
+
+.pull-right[
+
+- **Motifs**: small unit of a domain or a short region that is assumed to have biological function and is highly conserved
+  - Molecular sequences (aa or nucleotides)
+  - Structural units (secondary protein structures)
+  
+- **MEME suite** (http://meme-suite.org/): The MEME Suite is a powerful, integrated set of web-based tools for studying sequence motifs in proteins, DNA and RNA.
+  - [Bailey et al. 2015](https://academic.oup.com/nar/article/43/W1/W39/2467905)
+]
+
+
+--
+
+&gt; A protein's function can be investigated by protein domains and motifs.
+
+
+---
+class: animated, fadeIn
+
+# _De novo_ origin of genes
+
+&lt;i class="fa fa-question-circle fa-fw"&gt;&lt;/i&gt; **How do genes originate?**
+
+--
+
+&lt;center&gt;
+&lt;img src="img/denovo1.png" width=80%&gt;
+
+---
+class: animated, fadeIn
+
+# _De novo_ origin of genes
+
+&lt;center&gt;
+&lt;img src="img/41576_2025_929_Fig1_HTML.webp" width=85%&gt;
+&lt;/center&gt;
+&lt;small&gt;
+[Bornberg-Bauer &amp; Eicholt (2026)](https://www.nature.com/articles/s41576-025-00929-9)
+
+---
+class: animated, fadeIn
+
+# _De novo_ origin of genes
+
+.pull-left[
+&lt;img src="img/41576_2016_Article_BFnrg201678_Fig2_HTML.webp"&gt;
+]
+
+.pull-right[
+### Validation of novel genes
+
+- **Purifying selection** can aid us in seeing if a region is of importance, since mutations will not be allowed in regions that disrupt function of an element. 
+- **Positive selection** is not necessary but can be presen (characteristic of genes that are acquiring novel or improved functionality)
+- In **protein-coding genes**, translation is also required. 
+- **Taxonomically restricted genes** (recently emerged) should have much of the same properties of established genes. 
+- **Species-specific genes** and those with **spurious activity** can’t be compared and do not usually have enough population data. 
+
+]
+&lt;small&gt;
+
+[McLysaght &amp; Hurst (2016) )](https://www.nature.com/articles/nrg.2016.78)
+
+
+---
+class: animated, fadeIn
+
+# _De novo_ origin of genes
+
+&gt; **Pervasive transcription** and **transposition of promoters** which enhance the expression allow the region to be subject of **selection**, from where mutations will shape it further into a more active functional unit.
+
+- Mutations originating promoters, increasing expression, extending ORFs, optimizing codon usage...
+
+--
+
+&lt;center&gt;
+&lt;img src="img/pgen.1002381.g001.png" width=60%&gt;
+&lt;/center&gt;
+A hypothetical example where a novel human ORF is created by a human-specific deletion (1 bp deletion shifts a downstream stop codon out of frame).
+
+&lt;small&gt;
+[Guerzoni &amp; McLysaght (2011)](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1002381)
 
 ---
 
@@ -160,8 +902,211 @@ class: animated, fadeIn
 
 # Pathways
 
+.pull-left[
+- Many genes encode **enzymes**, which catalyze biochemical reactions
+- This series of enzyme-catalyzed reactions are organized into **pathways**
+
+*Example*: Glycolysis and oxidative pentose pathway (A) and Krebs cycle (B)
+]
+
+.pull-right[
+&lt;center&gt;
+&lt;img src="img/
+jipb12245-fig-0003-m.jpg" width=72%&gt;
 
 
+
+]
+
+---
+class: animated, fadeIn
+
+# Pathways
+
+
+For the categorization of enzymatic functions, an effort has been made by the biochemical societies to harmonize the nomenclature. 
+
+&gt; The **EC numbers** (**Enzyme Comission Number**) are four-number codes that hierarchically encompass the function of an enzyme
+
+--
+
+- This allows the complex description of enzymatic function that may be done by researchers into highly comparable and reproducible, standardized code. 
+
+&lt;center&gt;
+&lt;img src="img/ec.png" width=67%&gt;
+
+---
+
+class: animated, fadeIn
+
+# KEGG pathway database
+
+#### KEGG (Kyoto Encyclopedia for Genes and Genomes
+
+KEGG (https://www.kegg.jp/) is a database resource for representation and analysis of biological systems. Pathway maps are the primary dataset in KEGG representing systemic functions of the cell and the organism in terms of molecular interaction and reaction networks.
+
+- [Kanehisa et al. (2025)](https://academic.oup.com/nar/article/53/D1/D672/7824602)
+
+&lt;center&gt;
+&lt;img src="img/m_gkae909figgra1.jpeg" width=67%&gt;
+
+
+---
+
+class: animated, fadeIn
+
+# KEGG pathway database
+
+.pull-left[
+&lt;center&gt;
+&lt;img src="img/m_gkae909fig1.jpeg" &gt;
+]
+.pull-right[
+- The KEGG database resource consists of sixteen manually curated databases for various data objects representing:
+  - molecular network systems in the systems information category
+  - genetic building blocks in the genomic information category
+  - chemical building blocks in the chemical information category
+  - disease-related perturbed systems in the health information category
+]
+
+--
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;i class="fa fa-question-circle fa-fw"&gt;&lt;/i&gt; What do we do with non-enzyme genes?
+
+---
+
+class: animated, fadeIn
+
+# Gene Ontology (GO)
+
+- **Ontology**: the study of "being". Ontology often deals with questions concerning what entities exist and how such entities may be grouped, related within a hierarchy, and subdivided according to similarities and differences
+
+- The **Gene Ontology** project aims to:
+  - Maintain and develop a controlled vocabulary of gene and gene product attributes
+  - Annotate genes and gene products, and assimilate anddisseminate annotation data
+  - Provide tools for easy access to all aspects of the data provided by the project, and to enable functional interpretation of experimental data using the GO, for example via enrichment analysis
+
+&lt;center&gt;
+&lt;img src="img/images.png"&gt;
+
+https://geneontology.org/
+
+---
+
+class: animated, fadeIn
+
+# Gene Ontology (GO)
+
+.pull-left[
+&lt;img src="img/fig1.png"%&gt;
+]
+
+.pull-right[
+- A way to capture biological knowledge for individual gene products in a written and computable form
+- A set of concepts and their relationships to each other aranged as a **hierarchy**
+]
+---
+
+class: animated, fadeIn
+
+# Gene Ontology (GO)
+
+GO focuses on three aspects of biology:
+
+- **Molecular Function (MF)**: Describes the activities of individual gene products at the molecular level (eg: protein kinase activity, insulin receptor activity)
+-	**Biological Process (BP)**: Represents a series of molecular events or functions.  (eg: development, cell division)
+-	**Cellular Component (CC)**: Refers to the parts of a cell, including subcellular structures, macromolecular complexes, and the extracellular environment where gene products are located (eg: mitochondrion, mitochondrial matrix)
+
+&lt;center&gt;
+&lt;img src="img/fig2.png" width=35%&gt;
+
+---
+
+class: animated, fadeIn
+
+# Gene Ontology (GO)
+
+| Accession | Name | GO ID | GO term name |Reference |Evidence code |
+|--------|-------|------|------|-----|
+|P00505 | GOT2 | GO:0004069 |aspartate transaminase activity | PMID:2731362 | IDA
+
+A **GO annotation is** ...
+
+- a statement that a **gene product**
+
+--
+
+- has a particular **molecular function**, *or* is involved in a particular **biological process** *or* is located within a certain **cellular component**
+
+--
+
+- as described in a **particular reference**
+
+--
+
+- as determined by a **particular method**
+
+
+---
+
+
+class: animated, fadeIn
+
+# GO and KEGG analysis in `R`
+
+
+``` r
+library(clusterProfiler)
+library(org.Hs.eg.db)
+
+data(geneList, package="DOSE")
+
+gene &lt;- names(geneList)[abs(geneList) &gt; 2]
+
+ego &lt;- enrichGO(gene          = gene,
+                universe      = names(geneList),
+                OrgDb         = org.Hs.eg.db,
+                ont           = "ALL", # BP, MF, CC, ALL
+                pAdjustMethod = "BH",
+                pvalueCutoff  = 0.01,
+                qvalueCutoff  = 0.05,
+        readable      = TRUE)
+```
+
+---
+
+
+
+``` r
+library(clusterProfiler)
+library(org.Hs.eg.db)
+data(geneList, package="DOSE")
+gene &lt;- names(geneList)[abs(geneList) &gt; 2]
+
+
+kk &lt;- enrichKEGG(gene         = gene,
+                 organism     = 'hsa',
+                 pvalueCutoff = 0.05)
+```
+
+browseKEGG(kk, 'hsa04110')
+
+library("pathview")
+hsa04110 &lt;- pathview(gene.data  = geneList,
+                     pathway.id = "hsa04110",
+                     species    = "hsa",
+                     limit      = list(gene=max(abs(geneList)), cpd=1))
+                     
+---
+
+
+class: animated, fadeIn
+
+# Enrichment
+
+https://es.slideshare.net/slideshow/the-gene-ontology-gene-ontology-annotation-resources/59671730#17
 
 ---
 class: animated, fadeIn

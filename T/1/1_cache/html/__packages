@@ -18,3 +18,5 @@ clusterProfiler
 Biobase
 AnnotationDbi
 org.Hs.eg.db
+DT
+pathview

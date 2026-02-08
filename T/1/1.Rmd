@@ -1093,6 +1093,20 @@ A **GO annotation is** ...
 
 class: animated, fadeIn
 
+# Gene Ontology (GO)
+
+<center>
+<img src="img/41598_2016_Article_BFsrep28999_Fig3_HTML.webp" width=53%>
+</center>
+
+[MacMillan et al. 2016](https://www.nature.com/articles/srep28999)
+
+
+---
+
+
+class: animated, fadeIn
+
 # GO and KEGG analysis in `R`
 
 ```{r}
@@ -1101,49 +1115,175 @@ library(org.Hs.eg.db)
 
 data(geneList, package="DOSE")
 
+head(geneList)
+
 gene <- names(geneList)[abs(geneList) > 2]
 
-ego <- enrichGO(gene          = gene,
-                universe      = names(geneList),
-                OrgDb         = org.Hs.eg.db,
-                ont           = "ALL", # BP, MF, CC, ALL
-                pAdjustMethod = "BH",
-                pvalueCutoff  = 0.01,
-                qvalueCutoff  = 0.05,
-        readable      = TRUE)
 ```
-
 ---
 
+class: animated, fadeIn
+
+# GO and KEGG analysis in `R`
 
 ```{r}
 library(clusterProfiler)
 library(org.Hs.eg.db)
-data(geneList, package="DOSE")
-gene <- names(geneList)[abs(geneList) > 2]
+
+ego <- enrichGO(gene          = gene,
+                universe      = names(geneList),
+                OrgDb         = org.Hs.eg.db,
+                ont           = "BP", # BP, MF, CC, ALL
+                pAdjustMethod = "BH",
+                pvalueCutoff  = 0.01,
+                qvalueCutoff  = 0.05,
+                readable      = TRUE)
+```
+
+---
+
+class: animated, fadeIn
+
+# GO and KEGG analysis in `R`
+
+```{r echo = F}
+library(DT)
+datatable(
+  as.data.frame(ego),
+  options = list(
+    pageLength = 5,
+    scrollX = TRUE
+  ),
+  rownames = FALSE
+) |> 
+  formatStyle(
+    columns = names(as.data.frame(ego)),
+    fontSize = "14px"
+  )
+```
+
+---
+
+class: animated, fadeIn
+
+# GO and KEGG analysis in `R`
+
+```{r fig.align='center', fig.height=6}
+
+dotplot(ego)
+```
+
+---
+
+class: animated, fadeIn
+
+# GO and KEGG analysis in `R`
+
+```{r fig.align='center', fig.height=6}
+
+goplot(ego)
+```
 
 
+
+---
+
+class: animated, fadeIn
+
+# GO and KEGG analysis in `R`
+
+```{r}
 kk <- enrichKEGG(gene         = gene,
                  organism     = 'hsa',
                  pvalueCutoff = 0.05)
 ```
 
-browseKEGG(kk, 'hsa04110')
 
-library("pathview")
-hsa04110 <- pathview(gene.data  = geneList,
-                     pathway.id = "hsa04110",
-                     species    = "hsa",
-                     limit      = list(gene=max(abs(geneList)), cpd=1))
-                     
 ---
-
 
 class: animated, fadeIn
 
-# Enrichment
+# GO and KEGG analysis in `R`
 
-https://es.slideshare.net/slideshow/the-gene-ontology-gene-ontology-annotation-resources/59671730#17
+```{r echo = F}
+library(DT)
+datatable(
+  as.data.frame(kk),
+  options = list(
+    pageLength = 5,
+    scrollX = TRUE
+  ),
+  rownames = FALSE
+) |> 
+  formatStyle(
+    columns = names(as.data.frame(ego)),
+    fontSize = "14px"
+  )
+```
+
+---
+
+class: animated, fadeIn
+
+# GO and KEGG analysis in `R`
+
+```{r}
+browseKEGG(kk, 'hsa04218')
+```
+
+- Will open: https://www.kegg.jp/kegg-bin/show_pathway?hsa04218/2305/4605/9133/890/983/51806/1111/891/776/3708
+
+--
+
+```{r}
+library("pathview")
+hsa04110 <- pathview(gene.data  = geneList,
+                     pathway.id = "hsa04218",
+                     species    = "hsa",
+                     limit      = list(gene=max(abs(geneList)), cpd=1))
+```
+
+- Generates:
+<center>
+<img src="img/hsa04218.pathview.png" width=30%> 
+
+                     
+---
+class: animated, fadeIn
+
+# Statistical enrichment
+
+<center>
+<img src="img/enrich.png" width=50%>
+
+---
+class: animated, fadeIn
+
+# Statistical enrichment
+
+- **Fisher's exact test**: test for the exact probability of observing a deviation from a background population in a sample (comparing observed and expected values, or values in a contingency table). It is equivalent to the chi-square test but can be used for cases when the number of values is small (<6)
+
+- **Correction for multiple testing**: you can test for differences in the same sample of many categories (i.e.: enrichment for different colors or functions) and you can perform a Fisher's test for each of these categories. But p-values should be corrected for multiple testing (Bonferroni correction, False Discovery Rate)
+
+*Examples*:
+- Are duplicated genes in a genome enriched for certain functions?
+- Are overexpressed genes in a given condition enriched for a certain function?
+- When comparing a set of genomes, are the shared genes enriched in certain functions?
+
+---
+class: animated, fadeIn
+
+# Something that you learnt today?
+
+.pull-left[
+<center>
+<img src="img/wooclap1.png" width=80%>
+]
+.pull-right[
+
+#### <a href="https://www.wooclap.com">www.wooclap.com</a> <i class="fa-solid fa-arrow-right"></i> Event code: **SKTJQE**
+]
+
 
 ---
 class: animated, fadeIn

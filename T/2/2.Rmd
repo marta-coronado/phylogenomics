@@ -389,13 +389,47 @@ class: animated, fadeIn
 
 ## Definitions: gene trees evolve inside a species tree
 
-- A species tree if a tree of divergence times
+<center>
+<img src="img/tree1.png" width=75%> 
+</center>
+
+--
+
+- A species tree is effectively a tree of divergence times
+- Within the species tree evolve gene trees
+
+---
+
+Original definition of orthology and paralogy by Walter Fitch (1970,
+Systematic Zoology 19:99-113):
+"Where the homology is the result of gene duplication so that both
+copies have descended side by side during the history of an
+organism, (for example, alpha and beta hemoglobin) the genes
+should be called paralogous (para = in parallel).
+Where the homology is the result of speciation so that the history
+of the gene reflects the history of the species (for example alpha
+hemoglobin in man and mouse) the genes should be called
+orthologous (ortho = exact)."
+
+---
+
+Example of globin genes
 
 
 ---
 
+As a corollary:
+-	Orthology definition is purely on evolutionary terms (nor functional, not synteny, …)
+-	There is no limit on the number of orthologs or paralogs that a given gene can have (when more than one ortholog exists, there is nothing such as “true ortholog”) – this is particularly problematic when the gene of interest in humans has two orthologs in mouse, for example, and knocking out one may give misleading results
+-	Many-to-many orthology relationships do exist (co-orthology)
+-	There is no limit on how ancient/recent is the ancestral relationship of orthologs and paralogs
+-	Orthology is non-transitive (as opposed to homology)
 
-Are these sentences correct?
+
+---
+
+Are these sentences correct? T/F game in wooclap
+
 - Orthologs are homologous genes that have the same function
 - Orthologs are homologous genes in different species, while
 paralogs are homologous genes in the same species
@@ -407,6 +441,53 @@ to gene C, then A and C are orthologous to each other.
 they are always present in single copy
 - After a duplication, the orthologous copy is the one that keeps
 the function of the ancestral gene
+
+---
+
+Why predicting orthology is important?
+ Important implications for phylogeny: only sets of
+orthologous genes are expected to reflect the underlying
+species evolution (although there are many exceptions)
+ The most exact way of comparing two (or more) genomes in
+terms of their gene content. Necessary to uncover how
+genomes evolve.
+ Implications for functional inference: orthologs, as compared
+to paralogs, are more likely to share the same function
+
+---
+
+goblin example: tree
+
+---
+
+tree non-orthologous: not a species tree
+
+---
+
+-	Because it is the most exact way of comparing two (or more) genomes in term of their gene content, necessary to uncover how genomes evolved.
+
+Comparative genomics rests on comparison of “equivalent” genes, which is more precise when considering homology and paralogy. There is an ancient speciation, a gene duplication, and then a more recent speciation. 
+
+Only by resolving orthology relationships we can figure out the relationship. It is not that the frog lost one human gene, it is that both human genes have the same relationship with the frog gene.
+
+
+imagen perro rana humano
+
+---
+
+ Implications for functional inference: orthologs, as compared
+to paralogs, are more likely to share the same function
+REALLY???, IS THIS TRUE IF SO, WHY IS THAT?
+
+However, is this necessarily true? And if so, why? Reflecting on the process of gene evolution, when a gene duplicates there is redundancy in the genome. This is not necessarily an advantage: in the end, it is not what a genome wants to accommodate, and what is more common is that one of the copies eventually degrades into a pseudogene via a deleterious mutation. However, if mutations inactivate different functions in the different copies, the two genes are necessary to maintain the full function, and the two genes are retained (this process is called sub-functionalization). If, instead, one of the copies acquires a new function (neo-functionalization) this second copy may also be kept.
+
+---
+
+After duplication: diversify or die (neofunctionalization or subfunctionalization models)
+
+
+
+---
 
 
 - Homology, Paralogy and Orthology

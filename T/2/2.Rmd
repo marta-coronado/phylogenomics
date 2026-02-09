@@ -1,0 +1,431 @@
+---
+title: "<br>"
+subtitle: ""
+author: ""
+date: ""
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, rutgers, "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css", "https://use.fontawesome.com/releases/v7.0.0/css/all.css"]
+    lib_dir: libs
+    self_contained: true
+    nature:
+      mathjax: "default"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      
+---
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+#knitr::include_graphics()
+knitr::opts_chunk$set(
+  cache = TRUE,
+  message = FALSE, 
+  warning = FALSE,
+  hiline = TRUE,
+  fig.retina = 5
+)
+library(ggplot2)
+library(readr)
+library(knitr)
+#pagedown::chrome_print(".html")
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#1c5253", link_color =  "#DE1144", code_inline_color = "#DE1144",
+  header_font_google = google_font("Josefin Sans"),
+  text_font_google   = google_font("Montserrat", "400", "400i"),
+  code_font_google   = google_font("Roboto Mono"),
+    
+)
+```
+
+```{r xaringanExtra-clipboard, echo=FALSE}
+library(xaringanExtra)
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clipboard\"></i>",
+    success_text = "<i class=\"fa fa-check\" style=\"color: #90BE6D\"></i>",
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+```
+
+
+class: animated, fadeIn
+
+# Outline
+
+- Homology, Paralogy and Orthology
+- Methods for predicting orthology and paralogy clustering-based and phylogeny-based
+- Gene families
+- Gene duplication, neo- and sub-functionalization
+- Gene family expansions and contractions
+- Adaptation and genome evolution
+
+<style>
+.title-slide {
+  background-image: url('img/1.png');
+  background-size: 100%;
+}
+</style>
+
+
+---
+
+layout: false
+class: left, bottom, inverse, animated, bounceInDown
+# 01
+## Homology
+
+---
+class: animated, fadeIn
+
+# Homology
+
+--
+
+<center>
+<img src="img/Handskelett_MK1888.png" width=65%>
+
+<br><br>
+
+<i>Comparative anatomical representation of the hand skeleton</i>
+
+</center>
+
+---
+class: animated, fadeIn
+
+# Homology
+
+<center>
+<img src="img/Handskelett_MK1888.png" width=65%>
+
+<br><br>
+
+*Comparative anatomical representation of the hand skeleton*
+
+</center>
+
+Richard Owen coined the modern definition of homology in 1843.
+
+> _The same organ in different animals under every variety of form and function_
+
+???
+Richard Owen compared extant vertebrates and fossils, and coined this term to explain repeating patterns found in animals
+
+---
+class: animated, fadeIn
+
+# Homology
+
+.pull-left[
+> **Similarity of features due to inheritance from a last common ancestor**
+
+> Homology it an evolutionary concept, but does not make inference as to function or form
+]
+
+.pull-right[
+<center>
+<img src="img/homology2.jpg" width=40%> 
+</center>
+]
+
+???
+Homology refers to traits in different species that are similar due to a shared common ancestor, often having different functions (e.g., human arms and bat wings)
+
+---
+class: animated, fadeIn
+
+# Homology
+
+--
+
+.pull-left[
+
+# *vs.* Analogy
+
+> **A structure with similar functions that evolved independently in unrelated organisms via convergent evolution**
+
+> Homologous as forelimbs but analogous as wings (bird and bat wings)
+
+]
+
+.pull-right[
+<center>
+<img src="img/homology2.jpg" width=40%> 
+</center>
+]
+
+--
+
+- How does **homology** associate with sequences?
+
+---
+class: animated, fadeIn
+
+# Extension of homology to sequences
+
+> Two sequences are homologous if they share a common ancestry
+
+--
+
+<br>
+
+**_Protein alignment_**: the **similarity** between two sequences can be measured in the number of operations needed to transform one into the other: 
+
+<pre style="background-color: #f0f0f0; padding: 10px; border-radius: 6px;">
+AAB24882  TYHMCQFHCRYVNNHSGEKLYECNERSKAFSCPSHLQCHKRRQIGEKTHEHNQCGKAFPT 60
+AAB24881  --------------------YECNQCGKAFAQHSSLKCHYRTHIGEKPYECNQCGKAFSK 40
+                              ****: .***:  * *:** * :****.:* *******..
+
+AAB24882  PSHLQYHERTHTGEKPYECHQCGQAFKKCSLLQRHKRTHTGEKPYE-CNQCGKAFAQ- 116
+AAB24881  HSHLQCHKRTHTGEKPYECNQCGKAFSQHGLLQRHKRTHTGEKPYMNVINMVKPLHNS 98
+           **** *:***********:***:**.: .***************    :  *.: :
+</pre>
+
+--
+
+
+> We can infer homology from sequence similarity
+
+--
+
+> **How similar do they have to be?**
+
+???
+. The symbol * in the bottom row indicates that the two sequences
+are equal at that position, whereas : and . indicate decreasing similarity of the
+amino acids at that position
+
+---
+class: animated, fadeIn
+
+## Similarity and homology
+
+<i class="fa fa-warning"></i> These two terms are often confused, e.g.:
+
+> "_the sequences are 50% homologous_"
+
+> "_these two sequences are highly homologous_"
+
+- **Homology** is a **categorical** term: either two sequences are homologous or not
+- **Similarity** is a **quantitative** term, resulting from comparing two sequences (sequence *identity*)
+
+--
+
+<br>
+
+- We use similarity as a proxy of homology: if two sequences are significantly similar, we assume they are homologous
+
+--
+
+- When we calculate the similarity between two sequences, we need some sort of **statistics** to measure similarity (e.g., whether sequences are very similar or really different/result by chance)
+
+
+---
+class: animated, fadeIn
+
+## Result of sequence alignment
+
+<center>
+<img src="img/blastp3.png" width=45%> 
+</center>
+
+---
+class: animated, fadeIn
+
+## Result of sequence alignment
+
+### Scoring an alignment
+
+Maximize matches, minimize gaps
+  - Simplest scoring:
+    - Each match receives a score
+    - Mismatches receive a lower score than matches between identical residues
+    - Gaps receive penalties
+
+--
+
+**Example scoring**:
+- Match: +2
+- Mismatch: 0
+- Gap: -1
+
+
+---
+class: animated, fadeIn
+
+## Result of sequence alignment
+
+### Number of possible alignments
+
+The number of possible alignments is staggering! For two sequences of length $n$ and $m$, respectively, the number of possible alignments is:
+
+.pull-left[
+$$
+A(n,m)=\frac{(n+m)!}{m!k!}\approx\frac{2^{2n}}{2\times\pi\times n}
+$$
+]
+.pull-right[
+```{r echo = F, fig.height=4, fig.width=4}
+library(ggplot2)
+
+# función número de alineamientos para secuencias de igual longitud
+A <- function(n) {
+  factorial(2*n) / (factorial(n)^2)
+}
+
+# datos como en el gráfico (longitudes pequeñas)
+df <- data.frame(
+  n = 1:10,
+  alignments = A(1:10)
+)
+
+ggplot(df, aes(x = n, y = alignments)) +
+  geom_point() +
+  scale_y_log10() +
+  labs(
+    x = "Length of one sequence",
+    y = "Number of alignments"
+  ) +
+  theme_minimal(base_size = 18)
+
+```
+
+]
+
+Eddy, Sean R. "What is dynamic programming?." Nature biotechnology 22.7 (2004): 909-910.
+
+---
+class: animated, fadeIn
+
+## Result of sequence alignment
+### Protein scoring
+
+- Protein alignments use a scoring system based on frequencies of aminoacid substitutions in related proteins
+- Default scoring matrix is **BLOSUM62**
+
+.pull-left[
+<img src="img/blosum62.png" >
+]
+
+--
+
+.pull-right[
+- Frequently seen substitutions get positive scores
+- Rarely seen substitutions get negative scores
+- Substitutions expected by chance get a 0
+- Self-matches scores:
+  - Common aminoacids (e.g. A, I, L, V) have lower scores
+  - Rare amino acids (e.g., W) and those with special roles (e.g. P) have higher scores
+]
+
+---
+class: animated, fadeIn
+
+## Result of sequence alignment
+
+<center>
+<img src="img/blastp3.png" width=45%> 
+</center>
+
+---
+class: animated, fadeIn
+
+## Result of sequence alignment
+### E-value
+
+> **Expectaction value**: the number of sequences that would be expected to have that score (or higher) if the query sequence were compared against a database containing unrelated sequences
+
+$$
+E=m·n·2^-S'
+$$
+
+where $S'$ is a normalized score and $m$ and $n$ are the sequence lengths.
+
+- Ranges from zero to >10
+- The E-value is highly dependent on database 
+
+
+
+---
+class: animated, fadeIn
+
+## Other aspects in BLAST searches:
+
+- **E-value depends on database size**:
+  - Larger databases → higher chance of random matches
+  - The same alignment can have different E-values in different databases
+  - Important when locally searching in small databases
+  
+- **Low-complexity filtering**:
+  - Mask highly repetitive sequences 
+  - Prevents spurious high-scoring matches between unrelated sequences
+  - Example: proline-rich regions (`PPPAPPPGPPPPPPAPP`)
+  
+- **Why multiple HSPs can occur in a hit?**
+  - BLAST is a local alignment tool
+  - A sequence may share several independent matching regions
+  - Each region is reported as a separate High-scoring Segment Pair (HSP)
+  
+- **Issues with multi domain proteins**:
+  - Matches may reflect a shared domain, not full-protein homology
+
+---
+
+layout: false
+class: left, bottom, inverse, animated, bounceInDown
+# 02
+## Orthology and Paralogy
+
+---
+
+class: animated, fadeIn
+
+## Definitions: gene trees evolve inside a species tree
+
+- A species tree if a tree of divergence times
+
+
+---
+
+
+Are these sentences correct?
+- Orthologs are homologous genes that have the same function
+- Orthologs are homologous genes in different species, while
+paralogs are homologous genes in the same species
+- The ortholog is the most similar sequence among the
+homologs in another species
+- If gene A is orthologous to gene B, and gene B is orthologous
+to gene C, then A and C are orthologous to each other.
+- Orthologs are genes that do not duplicate and, when they exist,
+they are always present in single copy
+- After a duplication, the orthologous copy is the one that keeps
+the function of the ancestral gene
+
+
+- Homology, Paralogy and Orthology
+  - Methods for predicting orthology and paralogy clustering-based and phylogeny-based
+- Gene families
+- Gene duplication, neo- and sub-functionalization
+- Gene family expansions and contractions
+- Adaptation and genome evolution
+
+---
+class: animated, fadeIn
+
+## Contact
+
+<div style="margin-top: 20vh; text-align:center;">
+
+| Marta Coronado Zamora | 
+|:-:|
+| <a href="mailto:marta.coronado@uab.cat"><i class="fa fa-paper-plane fa-fw"></i> marta.coronado@uab.cat</a> | 
+| <a href="https://bsky.app/profile/geneticament.bsky.social"><i class="fab fa-bluesky fa-fw"></i>&nbsp; @geneticament.bsky.social</a> | 
+| <a href="https://www.uab.cat"><i class="fa fa-map-marker fa-fw"></i>&nbsp; Universitat Autònoma de Barcelona</a> | 
+

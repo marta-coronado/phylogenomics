@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title> </title>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/rutgers.css" rel="stylesheet" />
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-clipboard\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"Press Ctrl+C to Copy"})</script>
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.0.0/css/all.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# <br>
+]
+.author[
+### 
+]
+
+---
+
+
+
+
+
+
+
+
+class: animated, fadeIn
+
+# Outline
+
+- Homology, Paralogy and Orthology
+- Methods for predicting orthology and paralogy clustering-based and phylogeny-based
+- Gene families
+- Gene duplication, neo- and sub-functionalization
+- Gene family expansions and contractions
+- Adaptation and genome evolution
+
+&lt;style&gt;
+.title-slide {
+  background-image: url('img/1.png');
+  background-size: 100%;
+}
+&lt;/style&gt;
+
+
+---
+
+layout: false
+class: left, bottom, inverse, animated, bounceInDown
+# 01
+## Homology
+
+---
+class: animated, fadeIn
+
+# Homology
+
+--
+
+&lt;center&gt;
+&lt;img src="img/Handskelett_MK1888.png" width=65%&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;i&gt;Comparative anatomical representation of the hand skeleton&lt;/i&gt;
+
+&lt;/center&gt;
+
+---
+class: animated, fadeIn
+
+# Homology
+
+&lt;center&gt;
+&lt;img src="img/Handskelett_MK1888.png" width=65%&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+*Comparative anatomical representation of the hand skeleton*
+
+&lt;/center&gt;
+
+Richard Owen coined the modern definition of homology in 1843.
+
+&gt; _The same organ in different animals under every variety of form and function_
+
+???
+Richard Owen compared extant vertebrates and fossils, and coined this term to explain repeating patterns found in animals
+
+---
+class: animated, fadeIn
+
+# Homology
+
+.pull-left[
+&gt; **Similarity of features due to inheritance from a last common ancestor**
+
+&gt; Homology it an evolutionary concept, but does not make inference as to function or form
+]
+
+.pull-right[
+&lt;center&gt;
+&lt;img src="img/homology2.jpg" width=40%&gt; 
+&lt;/center&gt;
+]
+
+???
+Homology refers to traits in different species that are similar due to a shared common ancestor, often having different functions (e.g., human arms and bat wings)
+
+---
+class: animated, fadeIn
+
+# Homology
+
+--
+
+.pull-left[
+
+# *vs.* Analogy
+
+&gt; **A structure with similar functions that evolved independently in unrelated organisms via convergent evolution**
+
+&gt; Homologous as forelimbs but analogous as wings (bird and bat wings)
+
+]
+
+.pull-right[
+&lt;center&gt;
+&lt;img src="img/homology2.jpg" width=40%&gt; 
+&lt;/center&gt;
+]
+
+--
+
+- How does **homology** associate with sequences?
+
+---
+class: animated, fadeIn
+
+# Extension of homology to sequences
+
+&gt; Two sequences are homologous if they share a common ancestry
+
+--
+
+&lt;br&gt;
+
+**_Protein alignment_**: the **similarity** between two sequences can be measured in the number of operations needed to transform one into the other: 
+
+&lt;pre style="background-color: #f0f0f0; padding: 10px; border-radius: 6px;"&gt;
+AAB24882  TYHMCQFHCRYVNNHSGEKLYECNERSKAFSCPSHLQCHKRRQIGEKTHEHNQCGKAFPT 60
+AAB24881  --------------------YECNQCGKAFAQHSSLKCHYRTHIGEKPYECNQCGKAFSK 40
+                              ****: .***:  * *:** * :****.:* *******..
+
+AAB24882  PSHLQYHERTHTGEKPYECHQCGQAFKKCSLLQRHKRTHTGEKPYE-CNQCGKAFAQ- 116
+AAB24881  HSHLQCHKRTHTGEKPYECNQCGKAFSQHGLLQRHKRTHTGEKPYMNVINMVKPLHNS 98
+           **** *:***********:***:**.: .***************    :  *.: :
+&lt;/pre&gt;
+
+--
+
+
+&gt; We can infer homology from sequence similarity
+
+--
+
+&gt; **How similar do they have to be?**
+
+???
+. The symbol * in the bottom row indicates that the two sequences
+are equal at that position, whereas : and . indicate decreasing similarity of the
+amino acids at that position
+
+---
+class: animated, fadeIn
+
+## Similarity and homology
+
+&lt;i class="fa fa-warning"&gt;&lt;/i&gt; These two terms are often confused, e.g.:
+
+&gt; "_the sequences are 50% homologous_"
+
+&gt; "_these two sequences are highly homologous_"
+
+- **Homology** is a **categorical** term: either two sequences are homologous or not
+- **Similarity** is a **quantitative** term, resulting from comparing two sequences (sequence *identity*)
+
+--
+
+&lt;br&gt;
+
+- We use similarity as a proxy of homology: if two sequences are significantly similar, we assume they are homologous
+
+--
+
+- When we calculate the similarity between two sequences, we need some sort of **statistics** to measure similarity (e.g., whether sequences are very similar or really different/result by chance)
+
+
+---
+class: animated, fadeIn
+
+## Result of sequence alignment
+
+&lt;center&gt;
+&lt;img src="img/blastp3.png" width=45%&gt; 
+&lt;/center&gt;
+
+---
+class: animated, fadeIn
+
+## Result of sequence alignment
+
+### Scoring an alignment
+
+Maximize matches, minimize gaps
+  - Simplest scoring:
+    - Each match receives a score
+    - Mismatches receive a lower score than matches between identical residues
+    - Gaps receive penalties
+
+--
+
+**Example scoring**:
+- Match: +2
+- Mismatch: 0
+- Gap: -1
+
+
+---
+class: animated, fadeIn
+
+## Result of sequence alignment
+
+### Number of possible alignments
+
+The number of possible alignments is staggering! For two sequences of length `\(n\)` and `\(m\)`, respectively, the number of possible alignments is:
+
+.pull-left[
+$$
+A(n,m)=\frac{(n+m)!}{m!k!}\approx\frac{2^{2n}}{2\times\pi\times n}
+$$
+]
+.pull-right[
+&lt;img src="2_files/figure-html/unnamed-chunk-1-1.png" width="288" /&gt;
+
+]
+
+Eddy, Sean R. "What is dynamic programming?." Nature biotechnology 22.7 (2004): 909-910.
+
+---
+class: animated, fadeIn
+
+## Result of sequence alignment
+### Protein scoring
+
+- Protein alignments use a scoring system based on frequencies of aminoacid substitutions in related proteins
+- Default scoring matrix is **BLOSUM62**
+
+.pull-left[
+&lt;img src="img/blosum62.png" &gt;
+]
+
+--
+
+.pull-right[
+- Frequently seen substitutions get positive scores
+- Rarely seen substitutions get negative scores
+- Substitutions expected by chance get a 0
+- Self-matches scores:
+  - Common aminoacids (e.g. A, I, L, V) have lower scores
+  - Rare amino acids (e.g., W) and those with special roles (e.g. P) have higher scores
+]
+
+---
+class: animated, fadeIn
+
+## Result of sequence alignment
+
+&lt;center&gt;
+&lt;img src="img/blastp3.png" width=45%&gt; 
+&lt;/center&gt;
+
+---
+class: animated, fadeIn
+
+## Result of sequence alignment
+### E-value
+
+&gt; **Expectaction value**: the number of sequences that would be expected to have that score (or higher) if the query sequence were compared against a database containing unrelated sequences
+
+$$
+E=m·n·2^-S'
+$$
+
+where `\(S'\)` is a normalized score and `\(m\)` and `\(n\)` are the sequence lengths.
+
+- Ranges from zero to &gt;10
+- The E-value is highly dependent on database 
+
+
+
+---
+class: animated, fadeIn
+
+## Other aspects in BLAST searches:
+
+- **E-value depends on database size**:
+  - Larger databases → higher chance of random matches
+  - The same alignment can have different E-values in different databases
+  - Important when locally searching in small databases
+  
+- **Low-complexity filtering**:
+  - Mask highly repetitive sequences 
+  - Prevents spurious high-scoring matches between unrelated sequences
+  - Example: proline-rich regions (`PPPAPPPGPPPPPPAPP`)
+  
+- **Why multiple HSPs can occur in a hit?**
+  - BLAST is a local alignment tool
+  - A sequence may share several independent matching regions
+  - Each region is reported as a separate High-scoring Segment Pair (HSP)
+  
+- **Issues with multi domain proteins**:
+  - Matches may reflect a shared domain, not full-protein homology
+
+---
+
+layout: false
+class: left, bottom, inverse, animated, bounceInDown
+# 02
+## Orthology and Paralogy
+
+---
+
+class: animated, fadeIn
+
+## Definitions: gene trees evolve inside a species tree
+
+- A species tree if a tree of divergence times
+
+
+---
+
+
+Are these sentences correct?
+- Orthologs are homologous genes that have the same function
+- Orthologs are homologous genes in different species, while
+paralogs are homologous genes in the same species
+- The ortholog is the most similar sequence among the
+homologs in another species
+- If gene A is orthologous to gene B, and gene B is orthologous
+to gene C, then A and C are orthologous to each other.
+- Orthologs are genes that do not duplicate and, when they exist,
+they are always present in single copy
+- After a duplication, the orthologous copy is the one that keeps
+the function of the ancestral gene
+
+
+- Homology, Paralogy and Orthology
+  - Methods for predicting orthology and paralogy clustering-based and phylogeny-based
+- Gene families
+- Gene duplication, neo- and sub-functionalization
+- Gene family expansions and contractions
+- Adaptation and genome evolution
+
+---
+class: animated, fadeIn
+
+## Contact
+
+&lt;div style="margin-top: 20vh; text-align:center;"&gt;
+
+| Marta Coronado Zamora | 
+|:-:|
+| &lt;a href="mailto:marta.coronado@uab.cat"&gt;&lt;i class="fa fa-paper-plane fa-fw"&gt;&lt;/i&gt; marta.coronado@uab.cat&lt;/a&gt; | 
+| &lt;a href="https://bsky.app/profile/geneticament.bsky.social"&gt;&lt;i class="fab fa-bluesky fa-fw"&gt;&lt;/i&gt;&amp;nbsp; @geneticament.bsky.social&lt;/a&gt; | 
+| &lt;a href="https://www.uab.cat"&gt;&lt;i class="fa fa-map-marker fa-fw"&gt;&lt;/i&gt;&amp;nbsp; Universitat Autònoma de Barcelona&lt;/a&gt; | 
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "mathjax": "default",
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

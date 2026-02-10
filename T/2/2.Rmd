@@ -60,11 +60,9 @@ class: animated, fadeIn
 # Outline
 
 - Homology, Paralogy and Orthology
-- Methods for predicting orthology and paralogy clustering-based and phylogeny-based
 - Gene families
 - Gene duplication, neo- and sub-functionalization
-- Gene family expansions and contractions
-- Adaptation and genome evolution
+- Methods for predicting orthology and paralogy 
 
 <style>
 .title-slide {

@@ -86,7 +86,7 @@ class: animated, fadeIn
 
 &lt;br&gt;&lt;br&gt;
 
-*Comparative anatomical representation of the hand skeleton*
+&lt;i&gt;Comparative anatomical representation of the hand skeleton&lt;/i&gt;
 
 &lt;/center&gt;
 
@@ -121,8 +121,6 @@ Homology refers to traits in different species that are similar due to a shared 
 class: animated, fadeIn
 
 # Homology
-
---
 
 .pull-left[
 
@@ -255,7 +253,7 @@ $$
 
 ]
 
-(Eddy (2004) What is dynamic programming? 22.7: 909-910)[https://www.nature.com/articles/nbt0704-909]
+[Eddy (2004) What is dynamic programming? ][https://www.nature.com/articles/nbt0704-909]
 
 ---
 class: animated, fadeIn
@@ -278,7 +276,7 @@ class: animated, fadeIn
 - Substitutions expected by chance get a 0
 - Self-matches scores:
   - Common aminoacids (e.g. A, I, L, V) have lower scores
-  - Rare amino acids (e.g., W) and those with special roles (e.g. P) have higher scores
+  - Rare amino acids (e.g. W) and those with special roles (e.g. P) have higher scores
 ]
 
 ---
@@ -305,7 +303,7 @@ $$
 where `\(S'\)` is a normalized score and `\(m\)` and `\(n\)` are the sequence lengths.
 
 - Ranges from zero to &gt;10
-- The E-value is highly dependent on database 
+- The E-value is highly dependent on database size 
 
 
 
@@ -721,7 +719,7 @@ class: animated, fadeIn
 - Members of a gene family can be orthologs or paralogs between them
 - An orthologous group is a (or part of) a gene family
 - Gene families evolve by duplication and loss (birth and death)
-- Because of these loss/duplication dynamics, gene families will vary in size and phylogenetic distribution, where there can exist single-copy families and multi-gene families.
+- Because of these loss/duplication dynamics, gene families will vary in size and phylogenetic distribution, where there can exist single-copy families and multi-gene families
 ]
 
 --
@@ -776,18 +774,18 @@ class: left, bottom, inverse, animated, bounceInDown
 
 class: animated, fadeIn
 
-# Orthology prediction methods: classsic approach
+## Orthology prediction methods: classic approach
 
 &gt; The classical approach is through phylogenetic inference: 
 
-.pull-left[
+
 1.	Build a gene tree
 2.	Compare said tree to the species tree
 3.	Infer duplication and speciation events
 4.	Assign orthology and paralogy relationships accordingly
 
 
-]
+
 
 
 
@@ -795,7 +793,7 @@ class: animated, fadeIn
 
 class: animated, fadeIn
 
-# Orthology prediction methods: classsic approach
+## Orthology prediction methods: classic approach
 
 &gt; The classical approach is through phylogenetic inference: 
 
@@ -822,7 +820,7 @@ _The tree depicts the evolutionary relationships among several metazoan members 
 
 class: animated, fadeIn
 
-# Orthology prediction methods: genome-wide approach
+## Orthology prediction methods: genome-wide approach
 
 &gt; When doing genome-wide scale analyses, everything must be done automatically and “blind”. 
 
@@ -853,7 +851,7 @@ Phylogenetic-based approaches:
 
 class: animated, fadeIn
 
-## Best reciprocal hit (BHR)
+## Best reciprocal hit (BRH)
 
 --
 
@@ -864,15 +862,14 @@ class: animated, fadeIn
 
 .pull-right[
 
-- (a) **Best bi-directional (reciprocal) hits** - **All pairs of proteins with reciprocal best hits are considered orthologs.**
+(a) **Best bi-directional (reciprocal) hits** - **All pairs of proteins with reciprocal best hits are considered orthologs.**
 
 - If the best hit of gene A is gene B, and the best hit of gene B is gene A, they are assumed to be orthologs
-- Note that this method is unable to predict the orthology with the yellow protein 2.
-- This method detects all orthologies as one-to-one. So it cannot deal with many-to-many relationships.
-- It is also highly affected by paralogy. 
-- It does have a low rate of false positives, but high rates of false negatives. 
-- However, it is the simplest and fastest method, still widely used. 
-- It is recommended for closely-related organisms and in situations where duplications are not excepted.
+- Note that this method is unable to predict the orthology with the yellow protein 2
+- This method detects all orthologies as one-to-one. So it cannot deal with many-to-many relationships
+- It is also highly affected by paralogy. - It does have a low rate of false positives, but high rates of false negatives
+- However, it is the simplest and fastest method, still widely used
+- It is recommended for closely-related organisms and in situations where duplications are not excepted
 
 
 
@@ -893,17 +890,18 @@ class: animated, fadeIn
 
 .pull-right[
 
-- (c) **Inparanoid approach - Like (a), but other proteins within a proteome (yellow protein 2 in this example) are included as 'in-paralogs' if they are more similar to each other than to their corresponding hits in the other species.**
+(c) **Inparanoid approach - Like BRH, but other proteins within a proteome (yellow protein 2 in this example) are included as 'in-paralogs' if they are more similar to each other than to their corresponding hits in the other species.**
 
 - It starts finding BRH, and then searches within the same genome, and any hit that is closer to the query than to the ortholog is considered to be a paralog
--  The conclusion is not that gene A and gene B are orthologs, but that group A and group B are orthologs to each other. This one, therefore, can handle many-to-many relationships. 
-- The key assumption is that the paralogy from group A is more recent than the speciation of genes A and B (in-paralogs). 
+-  The conclusion is not that gene A and gene B are orthologs, but that group A and group B are orthologs to each other. This one, therefore, can handle many-to-many relationships
+- The key assumption is that the paralogy from group A is more recent than the speciation of genes A and B (in-paralogs)
 
 
 
 ]
 
 --
+
 &gt; Definition of in- and out-paralogues require the specification of a
 given speciation-node of reference
 
@@ -920,12 +918,11 @@ class: animated, fadeIn
 
 .pull-right[
 
-- (b) **COG-like approach. Used by many databases like STRING.
-** 
+(b) **COG-like approach. Used by many databases like STRING.** 
 
-- Proteins in the nodes of triangular networks of BBHs are considered as orthologs (green, red and yellow protein 1 in the example). 
+- Proteins in the nodes of triangular networks of BBHs are considered as orthologs (green, red and yellow protein 1 in the example)
 - New proteins are added to the orthologous group if they are present in BBH triangles that share an edge with a given cluster (e.g., the gray protein will be added to the group because it forms a BBH triangle with the red and green proteins. Note that a BBH link with yellow protein 1 is not required.)
-- The COG-like approach can add additional proteins from the same genome if they are more similar to each other than to proteins in other genomes, or if they form BBH triangles with members of the cluster. This is not the case for yellow protein 2, which is, again, misclassified.
+- The COG-like approach can add additional proteins from the same genome if they are more similar to each other than to proteins in other genomes, or if they form BBH triangles with members of the cluster. This is not the case for yellow protein 2, which is, again, misclassified
 
  
 
@@ -949,8 +946,7 @@ class: animated, fadeIn
 
 .pull-right[
 
-- (b) **COG-like approach.** 
-
+(b) **COG-like approach.** 
 
 - COGs at varying stringencies. As stringency increases, poorly connected vertices drop out of COGs and COGs may split
 
@@ -991,7 +987,8 @@ class: animated, fadeIn
 
 ## Additional useful definitions
 
-&gt;	**In-paralogs and out-paralogs** ([Sonnhammer &amp; Koonin 2002](linkinghub.elsevier.com/retrieve/pii/S0168-9525(02)02793-2)): It is defined relative to a given speciation event. In-paralogs are derived from duplications occurred subsequent to the speciation event, and therefore specific to one lineage, whereas out-paralogs are paralogs emerged from duplications occurred before the speciation. If you change the speciation event, these relationships will change.
+&gt;	**In-paralogs and out-paralogs** (&lt;a href="https://doi.org/10.1016/S0168-9525(02)02793-2"&gt;Sonnhammer &amp;amp; Koonin 2002&lt;/a&gt;)
+: It is defined relative to a given speciation event. In-paralogs are derived from duplications occurred subsequent to the speciation event, and therefore specific to one lineage, whereas out-paralogs are paralogs emerged from duplications occurred before the speciation. If you change the speciation event, these relationships will change.
 
 &gt;	**Orthologous groups** (orthogroups) are also defined relative to a speciation event. It is the complete set of genes in one of the lineages formed by a speciation event, including both orthologs and in-paralogs, so not all genes in an orthologous group are orthologous to each other.
 
@@ -1001,24 +998,22 @@ class: animated, fadeIn
 &lt;img src="img/m_bioinformatics_36_supplement1_i219_f1.jpeg" width=42%&gt;
 &lt;/center&gt;
 &lt;small&gt;
-- Four different types of homology relations. A family of five genes sampled from human (in blue) and mouse (in green) evolves through speciation and duplication events (left-hand tree).
+Four different types of homology relations. A family of five genes sampled from human (in blue) and mouse (in green) evolves through speciation and duplication events (left-hand tree).
 
 ---
 class: animated, fadeIn
 
-## Hierarchical orthologous groups
+## Hierarchical orthologous groups (HOGs)
 
 - The definition of a reference ancestral species is just an approximation to the inherently hierarchical nature of gene family evolution, and is thus incomplete. To alleviate this, many databases define orthologous groups at various hierarchical levels. 
 
-- To alleviate this, many databases define orthologous groups at
-various hierarchical levels (e.g Metazoa, Vertebrates,
-Mammals, Primates)
+- To alleviate this, many databases define orthologous groups at various hierarchical levels (e.g Metazoa, Vertebrates, Mammals, Primates)
 
 
 ---
 class: animated, fadeIn
 
-## Hierarchical orthologous groups
+## Hierarchical orthologous groups (HOGs)
 
 - Hierarchical orthologous groups are defined as sets of genes that have descended from a single common ancestor within a taxonomic range of interest ([Altenhoff et al. 2013](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0053786))
 
@@ -1033,7 +1028,7 @@ The insulin gene in mammals&lt;br&gt;
 ---
 class: animated, fadeIn
 
-## Hierarchical orthologous groups
+## Hierarchical orthologous groups (HOGs)
 
 &lt;center&gt;
 &lt;img src="img/insulin2.png" width=60%&gt;
@@ -1048,57 +1043,56 @@ class: animated, fadeIn
 ---
 class: animated, fadeIn
 
-## Hierarchical orthologous groups
+## Hierarchical orthologous groups (HOGs)
 
 &lt;center&gt;
 &lt;img src="img/insulin3.png" width=60%&gt;
 &lt;/center&gt;
 
 - There's only one copy of the insulin gene in the ancestor of all mammals so all insulin genes in mammals are derived from it and should be in one **HOG**
-
 - In terms of orthology and paralogy relationships, a HOG contains orthologs and in-paralogs
 
 ---
 class: animated, fadeIn
 
-## Hierarchical orthologous groups
+## Hierarchical orthologous groups (HOGs)
 
 &lt;center&gt;
 &lt;img src="img/insulin4.png" width=60%&gt;
 &lt;/center&gt;
 
 - Orthologs are genes relateb by speciation 
-- This could be the basal speciation (S1)
+- This could be the basal speciation (S&lt;sub&gt;1&lt;/sub&gt;)
 
 
 ---
 class: animated, fadeIn
 
-## Hierarchical orthologous groups
+## Hierarchical orthologous groups (HOGs)
 
 &lt;center&gt;
 &lt;img src="img/insulin5b.png" width=60%&gt;
 &lt;/center&gt;
 
-- Or could be a subsequent speciation (S2)
+- Or could be a subsequent speciation (S&lt;sub&gt;2&lt;/sub&gt;)
 
 
 ---
 class: animated, fadeIn
 
-## Hierarchical orthologous groups
+## Hierarchical orthologous groups (HOGs)
 
 &lt;center&gt;
 &lt;img src="img/insulin5.png" width=60%&gt;
 &lt;/center&gt;
 
 - In-paralogs: genes related by a duplication, but importantly these duplications must have happened within the clade in question
-- Insulin 1 in mouse and insuline 2 in rat are in-paralogs relative to all mammals and are therefore in the same HOG at this level
+- Insulin 1 in mouse and insulin 2 in rat are in-paralogs relative to all mammals and are therefore in the same HOG at this level
 
 ---
 class: animated, fadeIn
 
-## Hierarchical orthologous groups
+## Hierarchical orthologous groups (HOGs)
 
 &lt;center&gt;
 &lt;img src="img/insulin6.png" width=60%&gt;
@@ -1109,7 +1103,7 @@ class: animated, fadeIn
 ---
 class: animated, fadeIn
 
-## Hierarchical orthologous groups
+## Hierarchical orthologous groups (HOGs)
 
 &lt;center&gt;
 &lt;img src="img/insulin10.png" width=60%&gt;
@@ -1121,7 +1115,7 @@ class: animated, fadeIn
 ---
 class: animated, fadeIn
 
-## Hierarchical orthologous groups
+## Hierarchical orthologous groups (HOGs)
 
 &lt;center&gt;
 &lt;img src="img/insulin7.png" width=60%&gt;
@@ -1133,7 +1127,7 @@ class: animated, fadeIn
 ---
 class: animated, fadeIn
 
-## Hierarchical orthologous groups
+## Hierarchical orthologous groups (HOGs)
 
 &lt;center&gt;
 &lt;img src="img/insulin8.png" width=60%&gt;
@@ -1145,7 +1139,7 @@ class: animated, fadeIn
 ---
 class: animated, fadeIn
 
-## Hierarchical orthologous groups
+## Hierarchical orthologous groups (HOGs)
 
 &lt;center&gt;
 &lt;img src="img/insulin9.png" width=60%&gt;
@@ -1156,7 +1150,7 @@ class: animated, fadeIn
 ---
 class: animated, fadeIn
 
-## Hierarchical orthologous groups
+## Hierarchical orthologous groups (HOGs)
 
 &lt;center&gt;
 &lt;img src="img/insulin10.png" width=60%&gt;
@@ -1172,7 +1166,7 @@ class: animated, fadeIn
 
 # Recap: similarity-based methods
 
-These BLAST-based methods are fast and scalable, which is an advantage, but as of late methods based on phylogeny have improved where fast pipelines and algorithms are available: ENSEMBL trees, PhylomeDB, TreeFam, ...
+These BLAST-based methods are fast and scalable, which is an advantage, but as of late methods based on phylogeny have improved where fast pipelines and algorithms are available: [PhylomeDB](https://beta.phylomedb.org/), [TreeFam](https://www.treefam.org/), ...
 
 - Methods based on phylogeny where not used at a large scale due to limitations in computational power (phylogenetics is costly)
 
@@ -1183,15 +1177,15 @@ class: animated, fadeIn
 # Phylogeny-based methods
 
 General procedure:
-- Reconstruct the evolution of a gene family (phylogenetics)
-- Detect duplication and speciation nodes 
-- Predict orthology and paralogy accordingly
+1. Reconstruct the evolution of a gene family (phylogenetics)
+2. Detect duplication and speciation nodes 
+3. Predict orthology and paralogy accordingly
 
 --
 
 There are two main methods for predicting duplication and speciation nodes from a tree:
 
-- Species tree reconciliation (RIO; Ensembl)
+- Species tree reconciliation algorithms
 - Species-overlap algorithms
 
 

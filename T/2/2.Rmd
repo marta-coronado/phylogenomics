@@ -448,14 +448,43 @@ class: animated, fadeIn
 class: animated, fadeIn
 
 
-## Example of goblin genes
+## Example of globin genes
 
 <center>
 <img src="img/goblin.png" width=80%>
 
 ---
+class: animated, fadeIn
 
+## Are these sentences TRUE or FALSE? 
 
+.pull-left[
+<img src="img/descarga.png">
+]
+.pull-right[
+1. Go to https://wooclap.com
+
+2. Introduce the event code: **ENFMJA**
+
+3. Login (SSO) with ATENeA
+]
+
+???
+ We can now discard the sentences from above:
+-	Orthologs are homologous genes that have the same function
+o	Orthology is purely on evolutionary terms, it does not mention function
+-	Orthologs are homologous genes in different species, whereas paralogs are homologous genes in the same species
+o	Paralogy can occur within the same species. The terms refer to the point of divergence (speciation or duplication) nor the current relationship of the species
+-	The ortholog is the most similar sequence among the homologs in another species
+o	Orthology is an evolutionary relationship, not a measure of similarity
+-	If gene A is orthologous to the B and gene B is orthologous to gene B, are A and C orthologous to each other?
+o	Not necessarily: orthology is non-transitive. In the p53, Homo sapiens p53 is orthologous to D.melanogaster  p53, and D.melanogaster is orthologous to Canis familiaris p73L, but H.sapiens p53 and C.familiaris p73L are not orthologous to each other. 
+-	Orthologs are genes that do not duplicate and, when they exist, are always in single-copy
+o	There is no limit to the amount of copies an ortholog can have. 
+-	After a duplication, the orthologous copy is the one that keeps the function of the ancestral gene
+o	Orthology is an evolutionary relationship, a priori unrelated from function
+
+---
 class: animated, fadeIn
 
 
@@ -490,28 +519,6 @@ class: animated, fadeIn
 
 https://www.ensembl.org/info/genome/compara/homology_types.html
 
----
-
-class: animated, fadeIn
-
-
-## Are these sentences correct? 
-
-T/F game in wooclap
-
- We can now discard the sentences from above:
--	Orthologs are homologous genes that have the same function
-o	Orthology is purely on evolutionary terms, it does not mention function
--	Orthologs are homologous genes in different species, whereas paralogs are homologous genes in the same species
-o	Paralogy can occur within the same species. The terms refer to the point of divergence (speciation or duplication) nor the current relationship of the species
--	The ortholog is the most similar sequence among the homologs in another species
-o	Orthology is an evolutionary relationship, not a measure of similarity
--	If gene A is orthologous to the B and gene B is orthologous to gene B, are A and C orthologous to each other?
-o	Not necessarily: orthology is non-transitive. In the p53, Homo sapiens p53 is orthologous to D.melanogaster  p53, and D.melanogaster is orthologous to Canis familiaris p73L, but H.sapiens p53 and C.familiaris p73L are not orthologous to each other. 
--	Orthologs are genes that do not duplicate and, when they exist, are always in single-copy
-o	There is no limit to the amount of copies an ortholog can have. 
--	After a duplication, the orthologous copy is the one that keeps the function of the ancestral gene
-o	Orthology is an evolutionary relationship, a priori unrelated from function
 
 ---
 

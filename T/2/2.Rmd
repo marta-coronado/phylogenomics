@@ -295,7 +295,7 @@ ggplot(df, aes(x = n, y = alignments)) +
 
 ]
 
-[Eddy (2004) What is dynamic programming? ][https://www.nature.com/articles/nbt0704-909]
+[Eddy (2004) What is dynamic programming?](https://www.nature.com/articles/nbt0704-909)
 
 ---
 class: animated, fadeIn
@@ -339,7 +339,7 @@ class: animated, fadeIn
 > **Expectaction value**: the number of sequences that would be expected to have that score (or higher) if the query sequence were compared against a database containing unrelated sequences
 
 $$
-E=m·n·2^-S'
+E=m·n·2^{-S'}
 $$
 
 where $S'$ is a normalized score and $m$ and $n$ are the sequence lengths.
@@ -528,7 +528,7 @@ class: animated, fadeIn
 ## Why predicting orthology is important?
 
 
-1. **Important implications for phylogeny**: only sets of orthologous genes are expected to reflect the underlying species evolution (although there are many exceptions)
+1\. **Important implications for phylogeny**: only sets of orthologous genes are expected to reflect the underlying species evolution (although there are many exceptions)
 
 --
 
@@ -546,7 +546,7 @@ class: animated, fadeIn
 ## Why predicting orthology is important?
 
 
-1. **Important implications for phylogeny**: only sets of orthologous genes are expected to reflect the underlying species evolution (although there are many exceptions)
+1\. **Important implications for phylogeny**: only sets of orthologous genes are expected to reflect the underlying species evolution (although there are many exceptions)
 
 <center>
 <img src="img/goblin2.png" width=60%>
@@ -560,7 +560,7 @@ class: animated, fadeIn
 ## Why predicting orthology is important?
 
 
-1. **Important implications for phylogeny**: only sets of orthologous genes are expected to reflect the underlying species evolution (although there are many exceptions)
+1\. **Important implications for phylogeny**: only sets of orthologous genes are expected to reflect the underlying species evolution (although there are many exceptions)
 
 
 <center>
@@ -575,7 +575,7 @@ class: animated, fadeIn
 ## Why predicting orthology is important?
 
 
-1. **Important implications for phylogeny**: only sets of orthologous genes are expected to reflect the underlying species evolution (although there are many exceptions)
+1\. **Important implications for phylogeny**: only sets of orthologous genes are expected to reflect the underlying species evolution (although there are many exceptions)
 
 <center>
 <img src="img/goblin4.png" width=60%>
@@ -597,7 +597,7 @@ class: animated, fadeIn
 ## Why predicting orthology is important?
 
 
-2. **The most exact way of comparing two (or more) genomes in terms of their gene content**. Necessary to uncover how genomes evolve.
+2\. **The most exact way of comparing two (or more) genomes in terms of their gene content**. Necessary to uncover how genomes evolve.
 
 
 
@@ -621,7 +621,7 @@ class: animated, fadeIn
 
 ## Why predicting orthology is important?
 
-3. **Implications for functional inference**: orthologs, as compared to paralogs, are more likely to share the same function.
+3\. **Implications for functional inference**: orthologs, as compared to paralogs, are more likely to share the same function.
 
 --
 
@@ -825,6 +825,7 @@ class: animated, fadeIn
 
 ## Orthology prediction methods: classic approach
 
+.pull-left[
 > The classical approach is through phylogenetic inference: 
 
 
@@ -833,7 +834,7 @@ class: animated, fadeIn
 3.	Infer duplication and speciation events
 4.	Assign orthology and paralogy relationships accordingly
 
-
+]
 
 
 
@@ -844,9 +845,11 @@ class: animated, fadeIn
 
 ## Orthology prediction methods: classic approach
 
+.pull-left[
+
 > The classical approach is through phylogenetic inference: 
 
-.pull-left[
+
 1.	Build a gene tree
 2.	Compare said tree to the species tree
 3.	Infer duplication and speciation events
@@ -902,8 +905,6 @@ class: animated, fadeIn
 
 ## Best reciprocal hit (BRH)
 
---
-
 .pull-left[
 <center>
 <img src="img/13059_2008_Article_1820_Fig2_HTML.webp" width=100%>
@@ -916,7 +917,8 @@ class: animated, fadeIn
 - If the best hit of gene A is gene B, and the best hit of gene B is gene A, they are assumed to be orthologs
 - Note that this method is unable to predict the orthology with the yellow protein 2
 - This method detects all orthologies as one-to-one. So it cannot deal with many-to-many relationships
-- It is also highly affected by paralogy. - It does have a low rate of false positives, but high rates of false negatives
+- It is also highly affected by paralogy. 
+- It does have a low rate of false positives, but high rates of false negatives
 - However, it is the simplest and fastest method, still widely used
 - It is recommended for closely-related organisms and in situations where duplications are not excepted
 
@@ -930,12 +932,12 @@ class: animated, fadeIn
 
 ## InParanoid approach
 
---
 
 .pull-left[
 <center>
 <img src="img/13059_2008_Article_1820_Fig2_HTML.webp" width=100%>
 ]
+
 
 .pull-right[
 
@@ -985,8 +987,6 @@ The name “orthologous group” is confounding, since it contains genes that ar
 class: animated, fadeIn
 
 ## COG-like approach
-
---
 
 .pull-left[
 <center>

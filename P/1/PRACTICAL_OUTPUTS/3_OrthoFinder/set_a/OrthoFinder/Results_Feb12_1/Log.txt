@@ -1,0 +1,4 @@
+2026-02-12 12:42:55 : Started OrthoFinder version 2.5.4
+Command Line: /home/mcoronado/miniconda3/envs/phylogenomics_p1/bin/orthofinder -f set_a/
+
+WorkingDirectory_Base: /mnt/c/Users/1244149/OneDrive - UAB/DOCENCIA/UPC/PhyloGenomics&CG/phylogenomics/P/1/PRACTICAL_OUTPUTS/3_OrthoFinder/set_a/OrthoFinder/Results_Feb12_1/WorkingDirectory/

@@ -1,0 +1,20 @@
+2026-02-12 12:54:22 : Started OrthoFinder version 3.1.2
+Command Line: /home/mcoronado/miniconda3/envs/orthofinder_py310/bin/orthofinder -f set_b/
+
+Search program: diamond
+MSA program: famsa
+Tree program: fasttree
+Scoring matrix: BLOSUM62
+Gap extend: 1
+Gap open: 11
+
+WorkingDirectory_Base: /home/mcoronado/3_OrthoFinder/set_b/OrthoFinder/Results_Feb12/WorkingDirectory/
+
+Species used: 
+0: ACYPI.fa
+1: MYZPE.fa
+2: SIPHA.fa
+
+FN_Orthogroups: /home/mcoronado/3_OrthoFinder/set_b/OrthoFinder/Results_Feb12/WorkingDirectory/clusters_OrthoFinder_I1.2.txt_id_pairs.txt
+WorkingDirectory_Trees: /home/mcoronado/3_OrthoFinder/set_b/OrthoFinder/Results_Feb12/WorkingDirectory/
+2026-02-12 12:54:42 : OrthoFinder run completed

@@ -1,0 +1,100 @@
+	ACYPI	MYZPE
+Number of genes	395	433
+Number of genes in orthogroups	393	429
+Number of unassigned genes	2	4
+Percentage of genes in orthogroups	99.5	99.1
+Percentage of unassigned genes	0.5	0.9
+Number of orthogroups containing species	358	359
+Percentage of orthogroups containing species	99.4	99.7
+Number of species-specific orthogroups	1	2
+Number of genes in species-specific orthogroups	3	7
+Percentage of genes in species-specific orthogroups	0.8	1.6
+
+
+Number of genes per-species in orthogroup	Number of orthogroups	Number of orthogroups
+'0	2	1
+'1	341	311
+'2	12	36
+'3	3	5
+'4	1	4
+'5	0	3
+'6	0	0
+'7	0	0
+'8	0	0
+'9	0	0
+'10	0	0
+11-15	1	0
+16-20	0	0
+21-50	0	0
+51-100	0	0
+101-150	0	0
+151-200	0	0
+201-500	0	0
+501-1000	0	0
+'1001+	0	0
+
+Number of genes per-species in orthogroup	Percentage of orthogroups	Percentage of orthogroups
+'0	0.6	0.3
+'1	94.7	86.4
+'2	3.3	10.0
+'3	0.8	1.4
+'4	0.3	1.1
+'5	0.0	0.8
+'6	0.0	0.0
+'7	0.0	0.0
+'8	0.0	0.0
+'9	0.0	0.0
+'10	0.0	0.0
+11-15	0.3	0.0
+16-20	0.0	0.0
+21-50	0.0	0.0
+51-100	0.0	0.0
+101-150	0.0	0.0
+151-200	0.0	0.0
+201-500	0.0	0.0
+501-1000	0.0	0.0
+'1001+	0.0	0.0
+
+Number of genes per-species in orthogroup	Number of genes	Number of genes
+'0	0	0
+'1	341	311
+'2	24	72
+'3	9	15
+'4	4	16
+'5	0	15
+'6	0	0
+'7	0	0
+'8	0	0
+'9	0	0
+'10	0	0
+11-15	15	0
+16-20	0	0
+21-50	0	0
+51-100	0	0
+101-150	0	0
+151-200	0	0
+201-500	0	0
+501-1000	0	0
+'1001+	0	0
+
+Number of genes per-species in orthogroup	Percentage of genes	Percentage of genes
+'0	0.0	0.0
+'1	86.3	71.8
+'2	6.1	16.6
+'3	2.3	3.5
+'4	1.0	3.7
+'5	0.0	3.5
+'6	0.0	0.0
+'7	0.0	0.0
+'8	0.0	0.0
+'9	0.0	0.0
+'10	0.0	0.0
+11-15	3.8	0.0
+16-20	0.0	0.0
+21-50	0.0	0.0
+51-100	0.0	0.0
+101-150	0.0	0.0
+151-200	0.0	0.0
+201-500	0.0	0.0
+501-1000	0.0	0.0
+'1001+	0.0	0.0

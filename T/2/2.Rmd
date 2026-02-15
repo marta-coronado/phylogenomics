@@ -55,6 +55,24 @@ htmltools::tagList(
 ```
 
 
+
+class: animated, fadeIn
+
+## Some previous questions 
+
+.pull-left[
+<img src="img/descarga.png">
+]
+.pull-right[
+1. Go to https://wooclap.com
+
+2. Introduce the event code: **ENFMJA**
+
+3. Login (SSO) with ATENeA
+]
+
+---
+
 class: animated, fadeIn
 
 # Outline
@@ -1446,6 +1464,22 @@ class: animated, fadeIn
 - The genocentric definition of orthology becomes problematic when homologous proteins in different species differ in domain architecture. 
 ]
 
+---
+
+class: animated, fadeIn
+
+## Recap
+
+.pull-left[
+<img src="img/descarga.png">
+]
+.pull-right[
+1. Go to https://wooclap.com
+
+2. Introduce the event code: **ENFMJA**
+
+3. Login (SSO) with ATENeA
+]
 
 ---
 class: animated, fadeIn

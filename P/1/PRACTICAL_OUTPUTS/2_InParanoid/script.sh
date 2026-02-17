@@ -21,6 +21,8 @@ perl inparanoid_outgroup.pl ACYPI.fa MYZPE.fa SIPHA.fa
 
 # Aligning the sequence Phy00BX1KU_ACYPI against the proteomes of MYZPE and SIPHA (see question 2.4)
 
-grep $DIR/"Phy00BX1KU_ACYPI" $DIR/ACYPI.fa -A 28 >  $DIR/Phy00BX1KU_ACYPI.fa
+#grep "Phy00BX1KU_ACYPI" $DIR/ACYPI.fa -A 28 >  $DIR/Phy00BX1KU_ACYPI.fa
+seqtk subseq ACYPI.fa <(echo "Phy00BX1KU_ACYPI") > Phy00BX1KU_ACYPI.fa
 cat $DIR/MYZPE.fa $DIR/SIPHA.fa > $DIR/MYZPE-SIPHA.fa
 blastp -query $DIR/Phy00BX1KU_ACYPI.fa -subject $DIR/MYZPE-SIPHA.fa -outfmt 6 -out with_outgroup/Phy00BX1KU_ACYPI.vs.MYZPE-SIPHA.outfmt6
+

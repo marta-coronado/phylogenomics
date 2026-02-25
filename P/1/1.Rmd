@@ -84,7 +84,7 @@ class: animated, fadeIn
 --
 
 1. We needed to revise the BLAST result (the same result is obtained either if we use `MYZPE2ACYPI.blast`  or `ACYPI2MYZPE.blast`)
-2. Three matches for Phy0042233_ACYPI can be found: one we already knew (the BHR, *Phy007ATFF_MYZPE*), and two more:
+2. Three matches for Phy0042233_ACYPI can be found: one we already knew (the BRH, *Phy007ATFF_MYZPE*), and two more:
 <center>
 <img src="img/Blast.png" width=85%>
 </center>

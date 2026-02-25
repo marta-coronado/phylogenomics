@@ -61,7 +61,7 @@ class: animated, fadeIn
 
 ## Overall performance
 
-> Average: **9.07** (39 participants)<br><br>
+> Average: **9.04** (43 participants)<br><br>
 > 10 participants with a 10
 
 <style>

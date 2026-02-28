@@ -101,7 +101,7 @@ class: animated, fadeIn
 ]
 .pull-right[
 
-#### <a href="https://www.wooclap.com">www.wooclap.com</a> <i class="fa-solid fa-arrow-right"></i> Event code: **SKTJQE**
+#### <a href="https://www.wooclap.com">www.wooclap.com</a> <i class="fa-solid fa-arrow-right"></i> Event code: **CBZDPQ**
 ]
 
 ---
@@ -193,6 +193,8 @@ class: animated, fadeIn
 - They usually encode for functions of the same pathway
 - Stoichiometric relationship
 ]
+
+--
 
 .pull-left[
 
@@ -299,7 +301,7 @@ class: animated, fadeIn
 --
 
 .pull-right[
-**Functional categories:**:
+**Functional categories**:
 
 - Essential vs. non-essential
 - Constitutive (housekeeping) vs. condition-specific
@@ -352,8 +354,6 @@ class: animated, fadeIn
 <center>
 <img src="img/gene.png" width=70%>
 </center>
-
---
 
 - The function of a gene is determined by the molecule carrying out that function (protein or ncRNA)
 - Gene functions ultimately arise from the chemical and physical properties of these molecules
@@ -907,7 +907,7 @@ class: animated, fadeIn
 ]
 <small>
 
-[McLysaght & Hurst (2016) )](https://www.nature.com/articles/nrg.2016.78)
+[McLysaght & Hurst (2016)](https://www.nature.com/articles/nrg.2016.78)
 
 
 ---
@@ -1281,7 +1281,7 @@ class: animated, fadeIn
 ]
 .pull-right[
 
-#### <a href="https://www.wooclap.com">www.wooclap.com</a> <i class="fa-solid fa-arrow-right"></i> Event code: **SKTJQE**
+#### <a href="https://www.wooclap.com">www.wooclap.com</a> <i class="fa-solid fa-arrow-right"></i> Event code: **CBZDPQ**
 ]
 
 
